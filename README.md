@@ -23,12 +23,12 @@ Vue Instance dalam suatu aplikasi bisa dalam bentuk :
 - Many Vue Instance dalam aplikasi, yang berperan di berbagai bagian 
 ```
 ```
-<div id="tutorial1">
+<div id="tutorial2">
     <h1>{{ name }}</h1>
 </div>     
 
 new Vue({
-    el: '#tutorial1', // Scope element
+    el: '#tutorial2', // Scope element
     data: {
         name: 'Vue JS 2 Tutorial',
     }
