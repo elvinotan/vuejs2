@@ -21,7 +21,17 @@
             <a :href="website">Google</a>
             <input type='text' :value="name"/>
             <p v-html="websiteRef"></p>
-        </div>  
+        </div>
+        
+        <div id="tutorial5">
+            <button @click="age++">Add 1 Year Direct</button>
+            <button @click="age--">Substract 1 Year Direct</button>
+            <button @click="addAge(1)">Add 1 Year</button>
+            <button @click="substractAge(1)">Substract 1 Year</button>
+            <button @dblclick="addAge(10)">Add 10 Year</button>
+            <button @dblclick="substractAge(10)">Add 10 Year</button>
+            <p>My Age is {{ age }}</p>
+        </div> 
     </body>
     <script src="app.js"></script>
 </html>

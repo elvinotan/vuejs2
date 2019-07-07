@@ -26,3 +26,20 @@ new Vue({
         websiteRef: "<a href='http://www.google.com'> Google </a>"
     }
 })
+
+new Vue({
+    el: '#tutorial5',
+    data: {
+        age: 25,
+        x: 0,
+        y: 0,        
+    },
+    methods: {
+        addAge(num) {
+            this.age += num;
+        },
+        substractAge(num) {
+            this.age -= num;
+        }
+    }
+})

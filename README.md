@@ -77,6 +77,37 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #05 - Events
+Untuk binding event dilakukan dgn cara v-on:{eventtype} atau @{eventtype}</br>
+Event bisa langsung memanipulasi property, ex: @click="age++"</br>
+Event dapat passing parameter, ex: @dblclick="addAge(10)"
+```
+<div id="tutorial5">
+    <button @click="age++">Add 1 Year Direct</button>
+    <button @click="age--">Substract 1 Year Direct</button>
+    <button @click="addAge(1)">Add 1 Year</button>
+    <button @click="substractAge(1)">Substract 1 Year</button>
+    <button @dblclick="addAge(10)">Add 10 Year</button>
+    <button @dblclick="substractAge(10)">Add 10 Year</button>
+    <p>My Age is {{ age }}</p>
+</div>
+
+new Vue({
+    el: '#tutorial5',
+    data: {
+        age: 25,
+        x: 0,
+        y: 0,        
+    },
+    methods: {
+        addAge(num) {
+            this.age += num;
+        },
+        substractAge(num) {
+            this.age -= num;
+        }
+    }
+})
+```
 # Vue JS 2 Tutorial #06 - Event Modifiers
 # Vue JS 2 Tutorial #07 - Keyboard Events
 # Vue JS 2 Tutorial #08 - Two-Way Data Binding
