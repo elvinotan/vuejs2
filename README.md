@@ -12,6 +12,16 @@ Why Vue.js ?
 - Very high run-time perfomance
 ```
 # Vue JS 2 Tutorial #02 - The Vue Instance
+```
+Install Visual Studio Code Live Server untuk support autoreload
+right-click at html file - Open with Live Server - Browser open automatically
+```
+```
+new Vue({}) 
+Vue Instance dalam suatu aplikasi bisa dalam bentuk :
+- 1 Vue Instance yang mengatur semua bagian aplikasi
+- Many Vue Instance dalam aplikasi, yang berperan di berbagai bagian 
+```
 # Vue JS 2 Tutorial #03 - Data & Methods
 # Vue JS 2 Tutorial #04 - Data Binding
 # Vue JS 2 Tutorial #05 - Events
