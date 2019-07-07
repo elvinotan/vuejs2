@@ -4,3 +4,16 @@ new Vue({
         name: 'Vue JS 2 Tutorial',
     }
 })
+
+new Vue({
+    el: '#tutorial3',
+    data: {
+       name: 'The Ninja Net',
+       job: 'Youtuber'
+    },
+    methods: {
+        greet(greet) {
+            return 'Good '+greet+' '+this.name;
+        }
+    }
+})

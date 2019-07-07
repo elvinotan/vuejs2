@@ -35,6 +35,28 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #03 - Data & Methods
+Pada process pemanggilan method dapat meng-pass parameter</br>
+Pada method untuk meng-access data, bisa langsung nama property tanpa menggunakan this.data, krn terdapat proxy
+```
+<div id="tutorial3">
+    <h1>{{ greet('Morning') }}</h1>    
+    <p>Name : {{ name }}</p>    
+    <p>Job : {{ job }}</p>   
+</div>
+
+new Vue({
+    el: '#tutorial3',
+    data: {
+       name: 'The Ninja Net',
+       job: 'Youtuber'
+    },
+    methods: {
+        greet(greet) {
+            return 'Good '+greet+' '+this.name;
+        }
+    }
+})
+```
 # Vue JS 2 Tutorial #04 - Data Binding
 # Vue JS 2 Tutorial #05 - Events
 # Vue JS 2 Tutorial #06 - Event Modifiers
