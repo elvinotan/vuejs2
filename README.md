@@ -22,6 +22,18 @@ Vue Instance dalam suatu aplikasi bisa dalam bentuk :
 - 1 Vue Instance yang mengatur semua bagian aplikasi
 - Many Vue Instance dalam aplikasi, yang berperan di berbagai bagian 
 ```
+```
+<div id="tutorial1">
+    <h1>{{ name }}</h1>
+</div>     
+
+new Vue({
+    el: '#tutorial1', // Scope element
+    data: {
+        name: 'Vue JS 2 Tutorial',
+    }
+})
+```
 # Vue JS 2 Tutorial #03 - Data & Methods
 # Vue JS 2 Tutorial #04 - Data Binding
 # Vue JS 2 Tutorial #05 - Events
