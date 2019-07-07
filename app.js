@@ -17,3 +17,12 @@ new Vue({
         }
     }
 })
+
+new Vue({
+    el: '#tutorial4', 
+    data: {
+        name: 'Elvino Tan',
+        website: 'http://www.google.com',
+        websiteRef: "<a href='http://www.google.com'> Google </a>"
+    }
+})

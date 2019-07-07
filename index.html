@@ -15,7 +15,13 @@
             <h1>{{ greet('Morning') }}</h1>    
             <p>Name : {{ name }}</p>    
             <p>Job : {{ job }}</p>   
-        </div>       
+        </div>  
+        
+        <div id="tutorial4">
+            <a :href="website">Google</a>
+            <input type='text' :value="name"/>
+            <p v-html="websiteRef"></p>
+        </div>  
     </body>
     <script src="app.js"></script>
 </html>

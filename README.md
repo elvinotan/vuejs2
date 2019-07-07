@@ -58,6 +58,24 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #04 - Data Binding
+Cara melakukan 1 way Data Binding pada Vue, v-bind:{attribute} atau :{attribute}</br>
+Cara meng-render html tag v-html={properties}
+```
+<div id="tutorial4">
+    <a :href="website">Google</a>
+    <input type='text' :value="name"/>
+    <p v-html="websiteRef"></p>
+</div>
+
+new Vue({
+    el: '#tutorial4', 
+    data: {
+        name: 'Elvino Tan',
+        website: 'http://www.google.com',
+        websiteRef: "<a href='http://www.google.com'> Google </a>"
+    }
+})
+```
 # Vue JS 2 Tutorial #05 - Events
 # Vue JS 2 Tutorial #06 - Event Modifiers
 # Vue JS 2 Tutorial #07 - Keyboard Events
