@@ -44,6 +44,7 @@
             <p>My Age is {{ age }}</p>
             <a @click.prevent="openGoogle" href="http://www.google.com">Google</a>
         </div>    
+
         <div id="tutorial7">
             <h5 style="color: red">Tutorial 7</h5>
             <label>Name</label>    
@@ -51,6 +52,7 @@
             <label>Age</label>    
             <input type="text" @keyup.alt.enter="logAge">      
         </div>
+
         <div id="tutorial8">
             <h5 style="color: red">Tutorial 8</h5>
             <label>Name</label>    
@@ -61,6 +63,7 @@
             <input type="text" v-model="age">      
             <span>{{ age }}</span>
         </div>  
+
         <div id="tutorial9">
             <h5 style="color: red">Tutorial 9</h5>
             <button @click="a++">Add To A</button>
@@ -71,7 +74,14 @@
             <div>Method Age + B = {{ mAddToB() }}</div>
             <div>Computed Age + A = {{ cAddToA }}</div>
             <div>Computed Age + B = {{ cAddToB }}</div>            
-        </div>      
+        </div>   
+        <div id="tutorial10">
+            <h5 style="color: red">Tutorial 10</h5>
+            <button @click="color=!color">Add Class color</button>
+            <button @click="bgcolor=!bgcolor">Add Class backgroundColor</button>
+            <p :class="computeClass">Class Binding Using Computed</p>
+            <p :class="{color, bgcolor}">Class Binding Using Direct Object Properties</p>
+        </div>   
     </body>
     <script src="app.js"></script>
 </html>

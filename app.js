@@ -114,3 +114,16 @@ new Vue({
         }
     }
 })
+
+new Vue({
+    el: '#tutorial10',
+    data: { 
+        color:false,
+        bgcolor:false, 
+    },
+    computed: {
+        computeClass() {
+            return { color:this.color, bgcolor:this.bgcolor }
+        }
+    }
+})

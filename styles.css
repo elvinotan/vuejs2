@@ -4,3 +4,11 @@
     text-align: center;
     border: 1px solid #333;
 }
+
+.color {
+    color: red;
+}
+
+.bgcolor {
+    background-color: coral
+}

@@ -236,6 +236,36 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #10 - Dynamic CSS Classes
+Logika dari Binding class adalah {key:value}</br>
+{key} = Nama class dari css</br>
+{value} = Boolean, bila true maka {key} akan di append pada class binding dan sebaliknya</br>
+Karena Class binding berupa {key:value}, makan binding tidak bisa langsung pada properties, harus berupa object {}</br>
+Contoh di bawah menggunakan binding dengan menggunakan Direct Object peroperties</br>
+```<p :class="{color, bgcolor}">```
+atau menggunakan computed properties</br>
+```<p :class="computeClass">```
+```
+<div id="tutorial10">
+    <h5 style="color: red">Tutorial 10</h5>
+    <button @click="color=!color">Add Class color</button>
+    <button @click="bgcolor=!bgcolor">Add Class backgroundColor</button>
+    <p :class="computeClass">Class Binding Using Computed</p>
+    <p :class="{color, bgcolor}">Class Binding Using Direct Object Properties</p>
+</div>
+
+new Vue({
+    el: '#tutorial10',
+    data: { 
+        color:false,
+        bgcolor:false, 
+    },
+    computed: {
+        computeClass() {
+            return { color:this.color, bgcolor:this.bgcolor }
+        }
+    }
+})
+```
 # Vue JS 2 Tutorial #11 - Conditionals
 # Vue JS 2 Tutorial #12 - Looping with v-for
 # Vue JS 2 Tutorial #13 - Simple Punchbag Game
