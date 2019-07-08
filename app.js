@@ -85,3 +85,32 @@ new Vue({
         age:''
     }
 })
+
+new Vue({
+    el: '#tutorial9',
+    data: {  
+        age: 20,
+        a: 0, 
+        b: 0,
+    },
+    methods: {
+        mAddToA() {
+            console.log('methodAddToA');
+            return this.age + this.a;
+        },
+        mAddToB() {
+            console.log('methodAddToB');
+            return this.age + this.b;
+        }
+    },
+    computed: {
+        cAddToA() {
+            console.log('computedAddToA');
+            return this.age + this.a;
+        },
+        cAddToB() {
+            console.log('computedAddToB');
+            return this.age + this.b;
+        }
+    }
+})

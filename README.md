@@ -189,6 +189,52 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #09 - Computed Properties
+Computed Properties adalah hasil manipulasi dari suatu data yang tidak di persistence atau bersifat sementara</br>
+Pada contoh di bawah saya menggunakan method dan juga computed properties, perbedaanya adalah, method tidak menyadari apabila properties di dalamnya berubah, initnya adalah method akan selalu run, sedangkan computed properties akan sadar apabila peroperty di dalam membernya berubah.</br>
+Perhatikan console.log apabila saya click Add To A / Add To B maka method akan dijalankan ke dua-duanya dan ini sgt boros perfomance, berbedan dengan computed properties yang hanya jalan bila ada member di dalamnya berubah</br>
+
+```
+<div id="tutorial9">
+    <h5 style="color: red">Tutorial 9</h5>
+    <button @click="a++">Add To A</button>
+    <button @click="b++">Add To B</button>
+    <div>A = {{ a }}</div>
+    <div>B = {{ b }}</div>
+    <div>Method Age + A = {{ mAddToA() }}</div>
+    <div>Method Age + B = {{ mAddToB() }}</div>
+    <div>Computed Age + A = {{ cAddToA }}</div>
+    <div>Computed Age + B = {{ cAddToB }}</div>            
+</div> 
+
+new Vue({
+    el: '#tutorial9',
+    data: {  
+        age: 20,
+        a: 0, 
+        b: 0,
+    },
+    methods: {
+        mAddToA() {
+            console.log('methodAddToA');
+            return this.age + this.a;
+        },
+        mAddToB() {
+            console.log('methodAddToB');
+            return this.age + this.b;
+        }
+    },
+    computed: {
+        cAddToA() {
+            console.log('computedAddToA');
+            return this.age + this.a;
+        },
+        cAddToB() {
+            console.log('computedAddToB');
+            return this.age + this.b;
+        }
+    }
+})
+```
 # Vue JS 2 Tutorial #10 - Dynamic CSS Classes
 # Vue JS 2 Tutorial #11 - Conditionals
 # Vue JS 2 Tutorial #12 - Looping with v-for

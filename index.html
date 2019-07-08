@@ -60,7 +60,18 @@
             <label>Age</label>    
             <input type="text" v-model="age">      
             <span>{{ age }}</span>
-        </div>        
+        </div>  
+        <div id="tutorial9">
+            <h5 style="color: red">Tutorial 9</h5>
+            <button @click="a++">Add To A</button>
+            <button @click="b++">Add To B</button>
+            <div>A = {{ a }}</div>
+            <div>B = {{ b }}</div>
+            <div>Method Age + A = {{ mAddToA() }}</div>
+            <div>Method Age + B = {{ mAddToB() }}</div>
+            <div>Computed Age + A = {{ cAddToA }}</div>
+            <div>Computed Age + B = {{ cAddToB }}</div>            
+        </div>      
     </body>
     <script src="app.js"></script>
 </html>
