@@ -241,7 +241,7 @@ Logika dari Binding class adalah {key:value}</br>
 {value} = Boolean, bila true maka {key} akan di append pada class binding dan sebaliknya</br>
 Karena Class binding berupa {key:value}, makan binding tidak bisa langsung pada properties, harus berupa object {}</br>
 Contoh di bawah menggunakan binding dengan menggunakan Direct Object peroperties</br>
-```<p :class="{color, bgcolor}">```
+```<p :class="{color, bgcolor}">```</br>
 atau menggunakan computed properties</br>
 ```<p :class="computeClass">```
 ```
