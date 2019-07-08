@@ -51,6 +51,16 @@
             <label>Age</label>    
             <input type="text" @keyup.alt.enter="logAge">      
         </div>
+        <div id="tutorial8">
+            <h5 style="color: red">Tutorial 8</h5>
+            <label>Name</label>    
+            <input type="text" v-model="name">
+            <span>{{ name }}</span>  
+            <br/>   
+            <label>Age</label>    
+            <input type="text" v-model="age">      
+            <span>{{ age }}</span>
+        </div>        
     </body>
     <script src="app.js"></script>
 </html>

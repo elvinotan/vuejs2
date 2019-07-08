@@ -76,3 +76,12 @@ new Vue({
         }
     }
 })
+
+
+new Vue({
+    el: '#tutorial8',
+    data: {  
+        name:'',
+        age:''
+    }
+})

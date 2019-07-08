@@ -166,6 +166,28 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #08 - Two-Way Data Binding
+Two way data binding dapat di terapkan dengan menggunakan tag v-model={property}</br>
+Otomatis bila kita input data maka data property akan berubah dan yang menggunakan property tersebut juga akan berubah
+```
+<div id="tutorial8">
+    <h5 style="color: red">Tutorial 8</h5>
+    <label>Name</label>    
+    <input type="text" v-model="name">
+    <span>{{ name }}</span>  
+    <br/>   
+    <label>Age</label>    
+    <input type="text" v-model="age">      
+    <span>{{ age }}</span>
+</div>  
+
+new Vue({
+    el: '#tutorial8',
+    data: {  
+        name:'',
+        age:''
+    }
+})
+```
 # Vue JS 2 Tutorial #09 - Computed Properties
 # Vue JS 2 Tutorial #10 - Dynamic CSS Classes
 # Vue JS 2 Tutorial #11 - Conditionals
