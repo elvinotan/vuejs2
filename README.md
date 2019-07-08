@@ -332,6 +332,60 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #13 - Simple Punchbag Game
+Untuk menerapkan apa yang sudah kita pelajari di bawah ini kita membuat simple game</br>
+Mohon di perhatikan coding : </br>
+- health = Kesahatan dari punch bug</br>
+- ended = Game sudah selesai atau belum </br>
+- punch() = Action pukul </br>
+- restart() = Restart Game ke kondisi awal </br>
+- progress() = Compute method untuk melihat progress health </br>
+
+```
+<div id="tutorial13">
+    <h5 style="color: red">Tutorial 13</h5>
+    <!-- Bag -->
+    <div id="bag">
+        <div v-if="!ended">Bag Ok</div>       
+        <div v-if="ended">Bag Burst</div>         
+    </div>
+        <!-- Bag Health -->
+    <div id="bag-health">
+        <div>{{ progress }}</div>
+    </div>
+        <!-- Controls -->
+        <div id="controls">
+        <button @click="punch" v-if="!ended">Punch</button>
+        <button @click="restart">Restart</button>
+    </div>
+</div>
+
+new Vue({
+    el: '#tutorial13',
+    data: { 
+        health: 100,
+        ended: false
+    },
+    methods: {
+        punch() {
+            console.log('Punch');
+            this.health -= 10;
+            if (this.health <= 0) {
+                this.ended = true;
+            }
+        },
+        restart(){
+            console.log('Restart');
+            this.health = 100;
+            this.ended = false;
+        }
+    },
+    computed: {
+        progress() {
+            return this.health;
+        }
+    }
+})
+```
 # Vue JS 2 Tutorial #14 - Multiple Vue Instances
 # Vue JS 2 Tutorial #15 - Intro to Components
 # Vue JS 2 Tutorial #16 - Refs

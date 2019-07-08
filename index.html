@@ -115,6 +115,24 @@
                     <div>{{ key }} - {{ val }}</div>
                 </template>                
             </template>
+        </div>
+
+        <div id="tutorial13">
+            <h5 style="color: red">Tutorial 13</h5>
+            <!-- Bag -->
+            <div id="bag">
+                <div v-if="!ended">Bag Ok</div>       
+                <div v-if="ended">Bag Burst</div>         
+            </div>
+             <!-- Bag Health -->
+            <div id="bag-health">
+                <div>{{ progress }}</div>
+            </div>
+             <!-- Controls -->
+             <div id="controls">
+                <button @click="punch" v-if="!ended">Punch</button>
+                <button @click="restart">Restart</button>
+            </div>
         </div>   
     </body>
     <script src="app.js"></script>
