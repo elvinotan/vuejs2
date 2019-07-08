@@ -8,22 +8,26 @@
     </head>
     <body>
         <div id="tutorial2">
+            <h5 style="color: red">Tutorial 2</h5>
             <h1>{{ name }}</h1>
         </div>   
 
         <div id="tutorial3">
+            <h5 style="color: red">Tutorial 3</h5>
             <h1>{{ greet('Morning') }}</h1>    
             <p>Name : {{ name }}</p>    
             <p>Job : {{ job }}</p>   
         </div>  
         
         <div id="tutorial4">
+            <h5 style="color: red">Tutorial 4</h5>
             <a :href="website">Google</a>
             <input type='text' :value="name"/>
             <p v-html="websiteRef"></p>
         </div>
         
         <div id="tutorial5">
+            <h5 style="color: red">Tutorial 5</h5>
             <button @click="age++">Add 1 Year Direct</button>
             <button @click="age--">Substract 1 Year Direct</button>
             <button @click="addAge(1)">Add 1 Year</button>
@@ -35,11 +39,13 @@
         </div>
         
         <div id="tutorial6">
+            <h5 style="color: red">Tutorial 6</h5>            
             <button @click.once="addAge(1)">Add 1 Year Direct</button>
             <p>My Age is {{ age }}</p>
             <a @click.prevent="openGoogle" href="http://www.google.com">Google</a>
         </div>    
         <div id="tutorial7">
+            <h5 style="color: red">Tutorial 7</h5>
             <label>Name</label>    
             <input type="text" @keyup.enter="logName">     
             <label>Age</label>    
