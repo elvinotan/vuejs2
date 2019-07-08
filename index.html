@@ -31,7 +31,18 @@
             <button @dblclick="addAge(10)">Add 10 Year</button>
             <button @dblclick="substractAge(10)">Add 10 Year</button>
             <p>My Age is {{ age }}</p>
-        </div> 
+            <div id="canvas" @mousemove="updateXY">{{x}},{{y}}</div>
+        </div>
+        
+        <div id="tutorial6">
+            <button @click="age++">Add 1 Year Direct</button>
+            <button @click="age--">Substract 1 Year Direct</button>
+            <button @click="addAge(1)">Add 1 Year</button>
+            <button @click="substractAge(1)">Substract 1 Year</button>
+            <button @dblclick="addAge(10)">Add 10 Year</button>
+            <button @dblclick="substractAge(10)">Add 10 Year</button>
+            <p>My Age is {{ age }}</p>
+        </div>    
     </body>
     <script src="app.js"></script>
 </html>

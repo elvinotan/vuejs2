@@ -40,6 +40,27 @@ new Vue({
         },
         substractAge(num) {
             this.age -= num;
+        },
+        updateXY(event) {
+            this.x = event.offsetX;
+            this.y = event.offsetY;
+        },
+    }
+})
+
+new Vue({
+    el: '#tutorial6',
+    data: {
+        age: 25,
+        x: 0,
+        y: 0,        
+    },
+    methods: {
+        addAge(num) {
+            this.age += num;
+        },
+        substractAge(num) {
+            this.age -= num;
         }
     }
 })

@@ -89,6 +89,7 @@ Event dapat passing parameter, ex: @dblclick="addAge(10)"
     <button @dblclick="addAge(10)">Add 10 Year</button>
     <button @dblclick="substractAge(10)">Add 10 Year</button>
     <p>My Age is {{ age }}</p>
+    <div id="canvas" @mousemove="updateXY">{{x}},{{y}}</div>
 </div>
 
 new Vue({
@@ -104,7 +105,11 @@ new Vue({
         },
         substractAge(num) {
             this.age -= num;
-        }
+        },
+        updateXY(event) {
+            this.x = event.offsetX;
+            this.y = event.offsetY;
+        },
     }
 })
 ```
