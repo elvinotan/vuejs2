@@ -292,6 +292,45 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #12 - Looping with v-for
+Pada contoh di bawah menjelaskan cara looping array, looping array of object dan looping properties</br>
+di bawah juga di jelaskan cara mendapatkan index pads saat looping</br>
+```
+<div id="tutorial12">
+<h5 style="color: red">Tutorial 12</h5>
+<ul>
+    <li v-for="(character, index) in characters">
+        {{ index }} . {{ character }}
+    </li>
+</ul>
+<ul>
+    <li v-for="(ninja, index) in ninjas">
+        {{ index }} . {{ ninja.name }} - {{ ninja.age }}
+    </li>
+</ul>
+<template v-for="(ninja, index) in ninjas">
+    <div>{{ index }} . {{ ninja.name }} - {{ ninja.age }}</div>
+</template>
+</br>
+<template v-for="(ninja, index) in ninjas">
+    <template v-for="(val, key) in ninja">
+        <div>{{ key }} - {{ val }}</div>
+    </template>                
+</template>
+</div>
+
+new Vue({
+    el: '#tutorial12',
+    data: { 
+        characters: ['Ken', 'Ryu', 'Blanka', 'Guild'],
+        ninjas: [
+            { name: 'Ken', age: 29 },
+            { name: 'Ryu', age: 32 },
+            { name: 'Blanka', age: 143 },
+            { name: 'Guild', age: 35 },
+        ],
+    },
+})
+```
 # Vue JS 2 Tutorial #13 - Simple Punchbag Game
 # Vue JS 2 Tutorial #14 - Multiple Vue Instances
 # Vue JS 2 Tutorial #15 - Intro to Components
