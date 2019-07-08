@@ -75,6 +75,7 @@
             <div>Computed Age + A = {{ cAddToA }}</div>
             <div>Computed Age + B = {{ cAddToB }}</div>            
         </div>   
+
         <div id="tutorial10">
             <h5 style="color: red">Tutorial 10</h5>
             <button @click="color=!color">Add Class color</button>
@@ -82,6 +83,7 @@
             <p :class="computeClass">Class Binding Using Computed</p>
             <p :class="{color, bgcolor}">Class Binding Using Direct Object Properties</p>
         </div>   
+
         <div id="tutorial11">
             <h5 style="color: red">Tutorial 11</h5>
             <button @click="error=!error">Toggle Error</button>
@@ -91,6 +93,29 @@
             <p v-show="error">Using v-show Error has accure</p>
             <p v-show="success">Using v-show Horeee sucesss processing</p>
         </div>    
+
+        <div id="tutorial12">
+            <h5 style="color: red">Tutorial 12</h5>
+            <ul>
+                <li v-for="(character, index) in characters">
+                    {{ index }} . {{ character }}
+                </li>
+            </ul>
+            <ul>
+                <li v-for="(ninja, index) in ninjas">
+                    {{ index }} . {{ ninja.name }} - {{ ninja.age }}
+                </li>
+            </ul>
+            <template v-for="(ninja, index) in ninjas">
+                <div>{{ index }} . {{ ninja.name }} - {{ ninja.age }}</div>
+            </template>
+            </br>
+            <template v-for="(ninja, index) in ninjas">
+                <template v-for="(val, key) in ninja">
+                    <div>{{ key }} - {{ val }}</div>
+                </template>                
+            </template>
+        </div>   
     </body>
     <script src="app.js"></script>
 </html>

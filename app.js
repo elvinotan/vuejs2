@@ -137,3 +137,16 @@ new Vue({
     computed: {
     }
 })
+
+new Vue({
+    el: '#tutorial12',
+    data: { 
+        characters: ['Ken', 'Ryu', 'Blanka', 'Guild'],
+        ninjas: [
+            { name: 'Ken', age: 29 },
+            { name: 'Ryu', age: 32 },
+            { name: 'Blanka', age: 143 },
+            { name: 'Guild', age: 35 },
+        ],
+    },
+})
