@@ -127,3 +127,13 @@ new Vue({
         }
     }
 })
+
+new Vue({
+    el: '#tutorial11',
+    data: { 
+        error: true,
+        success: false, 
+    },
+    computed: {
+    }
+})

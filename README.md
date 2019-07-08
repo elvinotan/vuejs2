@@ -267,6 +267,30 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #11 - Conditionals
+Conditional yang menentukan suatu tag di render atau tidak</br>
+v-if, v-else, v-else-if : Menentukan suatu tag di render atau tidak (tidak di render tampilan dan dom)</br>
+v-show : Menentukan suatu tag di render atau tidak (tetap ada di dom tetapi memiliki style display none)</br>
+```
+<div id="tutorial11">
+    <h5 style="color: red">Tutorial 11</h5>
+    <button @click="error=!error">Toggle Error</button>
+    <button @click="success=!success">Toggle Success</button>
+    <p v-if="error">Using v-if Error has accure</p>
+    <p v-else-if="success">Using v-else-if Horeee sucesss processing</p>
+    <p v-show="error">Using v-show Error has accure</p>
+    <p v-show="success">Using v-show Horeee sucesss processing</p>
+</div> 
+
+new Vue({
+    el: '#tutorial11',
+    data: { 
+        error: true,
+        success: false, 
+    },
+    computed: {
+    }
+})
+```
 # Vue JS 2 Tutorial #12 - Looping with v-for
 # Vue JS 2 Tutorial #13 - Simple Punchbag Game
 # Vue JS 2 Tutorial #14 - Multiple Vue Instances

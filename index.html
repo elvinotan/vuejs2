@@ -82,6 +82,15 @@
             <p :class="computeClass">Class Binding Using Computed</p>
             <p :class="{color, bgcolor}">Class Binding Using Direct Object Properties</p>
         </div>   
+        <div id="tutorial11">
+            <h5 style="color: red">Tutorial 11</h5>
+            <button @click="error=!error">Toggle Error</button>
+            <button @click="success=!success">Toggle Success</button>
+            <p v-if="error">Using v-if Error has accure</p>
+            <p v-else-if="success">Using v-else-if Horeee sucesss processing</p>
+            <p v-show="error">Using v-show Error has accure</p>
+            <p v-show="success">Using v-show Horeee sucesss processing</p>
+        </div>    
     </body>
     <script src="app.js"></script>
 </html>
