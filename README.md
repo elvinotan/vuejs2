@@ -114,6 +114,33 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #06 - Event Modifiers
+Event Modifier berfungsi untuk memanipulasi fungsi event</br>
+ex: @click.once="addAge(1)" hanya akan allow click sekali saja, untuk selanjutnya di block</br>
+ex: @click.prevent="openGoogle" akan mencegah behaviour dari link yaitu buka browser</br>
+Event modifier lainnya : .stop .prevent .capture .self .once .passive
+```
+<div id="tutorial6">
+    <button @click.once="addAge(1)">Add 1 Year Direct</button>
+    <p>My Age is {{ age }}</p>
+    <a @click.prevent="openGoogle" href="http://www.google.com">Google</a>
+</div>
+
+new Vue({
+    el: '#tutorial6',
+    data: {
+        age: 25,
+        
+    },
+    methods: {
+        addAge(num) {
+            this.age += num;
+        },
+        openGoogle() {
+            alert("You click Google link");
+        }
+    }
+})
+```
 # Vue JS 2 Tutorial #07 - Keyboard Events
 # Vue JS 2 Tutorial #08 - Two-Way Data Binding
 # Vue JS 2 Tutorial #09 - Computed Properties
