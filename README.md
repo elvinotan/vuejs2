@@ -191,7 +191,7 @@ new Vue({
 # Vue JS 2 Tutorial #09 - Computed Properties
 Computed Properties adalah hasil manipulasi dari suatu data yang tidak di persistence atau bersifat sementara</br>
 Pada contoh di bawah saya menggunakan method dan juga computed properties, perbedaanya adalah, method tidak menyadari apabila properties di dalamnya berubah, initnya adalah method akan selalu run, sedangkan computed properties akan sadar apabila peroperty di dalam membernya berubah.</br>
-Perhatikan console.log apabila saya click Add To A / Add To B maka method akan dijalankan ke dua-duanya dan ini sgt boros perfomance, berbedan dengan computed properties yang hanya jalan bila ada member di dalamnya berubah</br>
+Perhatikan console.log apabila saya click Add To A / Add To B maka method akan dijalankan ke dua-duanya dan ini sgt boros perfomance, berbeda dengan computed properties yang hanya jalan bila ada member di dalamnya berubah</br>
 
 ```
 <div id="tutorial9">
