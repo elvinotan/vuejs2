@@ -142,6 +142,29 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #07 - Keyboard Events
+@keyup.enter Hanya mentrigger method logName bila ada tombol enter yang di tekan</br>
+@keyup.alt.enter Hanya mentrigger method logAge  bila tombol alt dan enter di tekan secara bersamaan</br>
+Key Modifier lainnya: .enter .tab .esc .space .up .down .left .right .delete (captures both “Delete” and “Backspace” keys)</br>
+```
+<div id="tutorial7">
+    <label>Name</label>    
+    <input type="text" @keyup.enter="logName">     
+    <label>Age</label>    
+    <input type="text" @keyup.alt.enter="logAge">      
+</div>
+
+new Vue({
+    el: '#tutorial7',
+    methods: {  
+        logName() {
+            console.log('You enter name');
+        },
+        logAge() {
+            console.log('You enter age')
+        }
+    }
+})
+```
 # Vue JS 2 Tutorial #08 - Two-Way Data Binding
 # Vue JS 2 Tutorial #09 - Computed Properties
 # Vue JS 2 Tutorial #10 - Dynamic CSS Classes

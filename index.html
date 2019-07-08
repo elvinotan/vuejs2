@@ -40,7 +40,10 @@
             <a @click.prevent="openGoogle" href="http://www.google.com">Google</a>
         </div>    
         <div id="tutorial7">
-
+            <label>Name</label>    
+            <input type="text" @keyup.enter="logName">     
+            <label>Age</label>    
+            <input type="text" @keyup.alt.enter="logAge">      
         </div>
     </body>
     <script src="app.js"></script>

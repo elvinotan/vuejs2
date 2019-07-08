@@ -63,3 +63,16 @@ new Vue({
         }
     }
 })
+
+
+new Vue({
+    el: '#tutorial7',
+    methods: {  
+        logName() {
+            console.log('You enter name');
+        },
+        logAge() {
+            console.log('You enter age')
+        }
+    }
+})
