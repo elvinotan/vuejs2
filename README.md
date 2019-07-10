@@ -387,6 +387,53 @@ new Vue({
 })
 ```
 # Vue JS 2 Tutorial #14 - Multiple Vue Instances
+Vue Instance dalam 1 page bisa terdiri dari multiple, lihat contoh di bawah untuk property title, greet dan changeTitle event, satu sama lain tidak saling bersengolan. </br>
+Antar Vue juga dapat berinteraksi melalui pointer dari vue instance, variable yang menyimpan vue instance ini bersifat global</br>
+```
+<div>
+    <h5 style="color: red">Tutorial 14</h5>
+    <div id="tutorial14A">
+        <div>{{ title }}</div>
+        <div>{{ greet }}</div>
+    </div> 
+    <div id="tutorial14B">
+        <div>{{ title }}</div>
+        <div>{{ greet }}</div>
+        <button @click="changeTitleA">Change Title</button>
+    </div>  
+</div>
+
+var aa = new Vue({
+    el: '#tutorial14A',
+    data: { 
+        title: 'Title A',
+    },
+    computed: {
+        greet() {
+            return 'Greeting from A';
+        },
+    }
+})
+
+var bb = new Vue({
+    el: '#tutorial14B',
+    data: { 
+        title: 'Title B',
+    },
+    methods: {
+        changeTitleA() {
+            aa.title = 'Replace Title on instance A';
+        },
+    },
+    computed: {
+        greet() {
+            return 'Greeting from B';
+        }
+    }
+})
+
+bb.title = 'Replace Title on instance B from outside'
+```
 # Vue JS 2 Tutorial #15 - Intro to Components
 # Vue JS 2 Tutorial #16 - Refs
 # Vue JS 2 Tutorial #17 - The Vue CLI

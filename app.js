@@ -208,3 +208,11 @@ var bb = new Vue({
 })
 
 bb.title = 'Replace Title on instance B from outside'
+
+new Vue({
+    el: '#tutorial15',
+    data: { 
+    },
+    computed: {
+    }
+})
