@@ -177,3 +177,34 @@ new Vue({
         }
     }
 })
+
+var aa = new Vue({
+    el: '#tutorial14A',
+    data: { 
+        title: 'Title A',
+    },
+    computed: {
+        greet() {
+            return 'Greeting from A';
+        },
+    }
+})
+
+var bb = new Vue({
+    el: '#tutorial14B',
+    data: { 
+        title: 'Title B',
+    },
+    methods: {
+        changeTitleA() {
+            aa.title = 'Replace Title on instance A';
+        },
+    },
+    computed: {
+        greet() {
+            return 'Greeting from B';
+        }
+    }
+})
+
+bb.title = 'Replace Title on instance B from outside'

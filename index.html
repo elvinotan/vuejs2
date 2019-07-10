@@ -133,7 +133,19 @@
                 <button @click="punch" v-if="!ended">Punch</button>
                 <button @click="restart">Restart</button>
             </div>
-        </div>   
+        </div> 
+        <div>
+            <h5 style="color: red">Tutorial 14</h5>
+            <div id="tutorial14A">
+                <div>{{ title }}</div>
+                <div>{{ greet }}</div>
+            </div> 
+            <div id="tutorial14B">
+                <div>{{ title }}</div>
+                <div>{{ greet }}</div>
+                <button @click="changeTitleA">Change Title</button>
+            </div>  
+        </div>
     </body>
     <script src="app.js"></script>
 </html>
