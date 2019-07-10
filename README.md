@@ -435,6 +435,43 @@ var bb = new Vue({
 bb.title = 'Replace Title on instance B from outside'
 ```
 # Vue JS 2 Tutorial #15 - Intro to Components
+Pada tahap ini kita akan masuk ke bagian component, reuseable component</br>
+Sifat component adalah:</br>
+- Nama component (argument pertama), akan menjadi nama html tag</br>
+- Reuseable</br>
+- State bersifat private dan tidak di share</br>
+Berbeda dgn contoh di atas. Untuk component, bagian data harus berupa function yang mengembalikan object, artinya setiap instance component memiliki statenya sendiri, apabila bukan mengembalikan function maka state tersebut akan di share untuk semua komponent.</br>
+Beberapa kendala dalam permbuatan komponent : </br>
+a. Komponen tidak muncul : Komponen harus hidup di dalam instance Vue dia tidak dapat hidup tanpa container Vue</br>
+b. Template html tidak ke render semua : Template harus mengembalikan 1 instance, pastikan semua tag di wrap jadi 1 tag</br>
+```
+<div id="tutorial15">
+    <h5 style="color: red">Tutorial 15</h5>
+    <greeting></greeting>
+    <greeting></greeting>
+</div>
+
+Vue.component('greeting', {
+    template: `
+        <div>
+            <p>My Current Name is {{name}}</p>
+            <button @click='changeName'>Change Name</button>
+        </div>
+    `,
+    data() {
+        return {name:'Elvino'}
+    },
+    methods: {
+        changeName() {  
+            this.name='Elvino Tan';
+        }
+    }
+});
+
+new Vue({
+    el:'#tutorial15'
+}) 
+```
 # Vue JS 2 Tutorial #16 - Refs
 # Vue JS 2 Tutorial #17 - The Vue CLI
 # Vue JS 2 Tutorial #18 - Vue Files & The Root Component

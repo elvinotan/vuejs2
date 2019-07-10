@@ -209,10 +209,23 @@ var bb = new Vue({
 
 bb.title = 'Replace Title on instance B from outside'
 
-new Vue({
-    el: '#tutorial15',
-    data: { 
+Vue.component('greeting', {
+    template: `
+        <div>
+            <p>My Current Name is {{name}}</p>
+            <button @click='changeName'>Change Name</button>
+        </div>
+    `,
+    data() {
+        return {name:'Elvino'}
     },
-    computed: {
+    methods: {
+        changeName() {  
+            this.name='Elvino Tan';
+        }
     }
-})
+});
+
+new Vue({
+    el:'#tutorial15'
+}) 
