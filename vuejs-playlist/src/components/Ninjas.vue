@@ -4,6 +4,7 @@
             <div>{{ ninja.name }}</div>
             <div v-show="ninja.show">{{ ninja.speciality }}</div>
         </div>
+        <button @click="ninjas.pop()">Delete</button>
     </div>    
 </template>
 <script>

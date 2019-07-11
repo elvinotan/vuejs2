@@ -772,7 +772,8 @@ Props digunakan sebagai teknik passing data dari parent ke child</br>
 Untuk passing prop kita menggunakan v-bind:{props name}={value} atau :{props name}={value}. Bila tidak menggunakan v-bind, maka data di anggap sebagai string.</br>
 Untuk menerima props dari parent dapat dilakukan dgn cara:</br>
 ```props:['ninjas']``` namun cara ini kurang prakstis krn tidak ada validasi terhadap props tersebut</br>
-```props:{ ninjas: { type: Array, required: true } }``` cara ini lebih baik, karena props akan di validasi, dan akan error bila tidak memenuhi kriteria validation</br>        
+```props:{ ninjas: { type: Array, required: true } }``` cara ini lebih baik, karena props akan di validasi, dan akan error bila tidak memenuhi kriteria validation</br>
+Data props yang di passing oleh parent bisa di access kayaknya properties</br>
 ```
 <template>
     <div>
@@ -798,9 +799,11 @@ Untuk menerima props dari parent dapat dilakukan dgn cara:</br>
 <app-ninjas :ninjas="ninjas"></app-ninjas>
 ```
 # Vue JS 2 Tutorial #23 - Primitive vs Reference Types
-```
+Penting!!!!, Data props yang di passing dari parent ke child, ada 2 tipe yaitu Primitive dan Reference</br>
+Primivite : String, Boolean, Number</br>
+Reference : Array, Object</br>
+Efek dari statement di atas adalah, bila pada level child mengubah data props primitive, maka data yang ada di parent tidak ada berubah, Sebaliknya bila level child mengubah data props reference, maka data yang ada di parent akan berubah, serta semua component yang menggunakan reference tersebut.</br>
 
-```
 # Vue JS 2 Tutorial #24 - Events (child to parent)
 ```
 

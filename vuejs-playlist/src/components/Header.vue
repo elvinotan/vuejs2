@@ -1,8 +1,11 @@
 <template>
-    <div>--- {{ title }} ---</div>    
+    <div @click="title='Change title'">--- {{ title }} ---</div>    
 </template>
 <script>
     export default {
+        props: {
+            title : { type: String }
+        },
         data() {
             return {
                 title: 'Header Title',                    

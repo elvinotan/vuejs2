@@ -1,8 +1,9 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header :title="title"></app-header>
     <app-ninjas :ninjas="ninjas"></app-ninjas>
-    <app-footer></app-footer>    
+    <app-ninjas :ninjas="ninjas"></app-ninjas>
+    <app-footer :title="title"></app-footer>    
   </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
   },
   data () {
     return {
-      title: 'Ninjas',
+      title: 'Ninjas Vue',
       ninjas: [
                   {name: 'Elvino', speciality: 'Programing', show: false},
                   {name: 'Carinnia', speciality: 'Database', show: false},
