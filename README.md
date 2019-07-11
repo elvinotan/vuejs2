@@ -768,8 +768,34 @@ export default {
 </script>
 ```
 # Vue JS 2 Tutorial #22 - Props
+Props digunakan sebagai teknik passing data dari parent ke child</br>
+Untuk passing prop kita menggunakan v-bind:{props name}={value} atau :{props name}={value}. Bila tidak menggunakan v-bind, maka data di anggap sebagai string.</br>
+Untuk menerima props dari parent dapat dilakukan dgn cara:</br>
+```props:['ninjas']``` namun cara ini kurang prakstis krn tidak ada validasi terhadap props tersebut</br>
+```props:{ ninjas: { type: Array, required: true } }``` cara ini lebih baik, karena props akan di validasi, dan akan error bila tidak memenuhi kriteria validation</br>        
 ```
+<template>
+    <div>
+        <div v-for="ninja in ninjas" :key="ninja" @click="ninja.show = !ninja.show">
+            <div>{{ ninja.name }}</div>
+            <div v-show="ninja.show">{{ ninja.speciality }}</div>
+        </div>
+    </div>    
+</template>
+<script>
+    export default {
+        props:{
+            ninjas: { type: Array, required: true }
+        },
+        data() {
+            return {
+                title: 'Ninjas',                
+            }
+        }
+    }
+</script>
 
+<app-ninjas :ninjas="ninjas"></app-ninjas>
 ```
 # Vue JS 2 Tutorial #23 - Primitive vs Reference Types
 ```

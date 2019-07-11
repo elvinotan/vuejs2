@@ -8,14 +8,12 @@
 </template>
 <script>
     export default {
+        props:{
+            ninjas: { type: Array, required: true }
+        },
         data() {
             return {
-                title: 'Ninjas',
-                ninjas: [
-                    {name: 'Elvino', speciality: 'Programing', show: false},
-                    {name: 'Carinnia', speciality: 'Database', show: false},
-                    {name: 'Constantine', speciality: 'Drawing', show: false},
-                ]
+                title: 'Ninjas',                
             }
         }
     }
