@@ -676,7 +676,7 @@ h1{
 ```
 # Vue JS 2 Tutorial #21 - Nesting Components Examples
 Pada contoh di bawah, menggunakan 3 component : header, ninjas dan footer</br>
-Perhatikan cara menggunakan component di bawah ini, bila kurang jelas lihat bagian atas, ini adalah penerapan dari latihan-latihan di atas
+Perhatikan cara menggunakan component di bawah ini, bila kurang jelas lihat bagian atas, ini adalah penerapan dari latihan-latihan di atas</br>
 ```
 Header.vue
 <template>
