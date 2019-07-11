@@ -229,3 +229,19 @@ Vue.component('greeting', {
 new Vue({
     el:'#tutorial15'
 }) 
+
+
+new Vue({
+    el:'#tutorial16',
+    data:{
+        output: '.....Plese fill the textbox above',
+    }, 
+    methods: {
+        submit() {
+            console.log(this.$refs); //Get all refs
+            this.output = this.$refs.food.value;
+            this.$refs.foodDiv.innerText = this.output;
+            this.$refs.greeting.name = this.output;
+        }
+    }
+}) 

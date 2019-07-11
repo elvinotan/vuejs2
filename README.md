@@ -473,6 +473,35 @@ new Vue({
 }) 
 ```
 # Vue JS 2 Tutorial #16 - Refs
+Ref adalah pointer address, dgn ref kita dapat pointer dari tag/component, dan dari situ kita dapat access property, methods dll..</br>
+Ref tidak hanya mengarah ke input component, ref juga dapat mengarah ke container ```<div>``` serta custom component</br>
+```this.refs``` = akan mendapatkan seluruh pointers dalam container el (bagus sekali untuk validate all component)
+
+```
+<div id="tutorial16">
+    <h5 style="color: red">Tutorial 16</h5>
+    <input type="text" ref="food"/>
+    <button @click="submit">Submit Food</button>
+    <p>Your Favorite Food {{ output }}</p>
+    <div ref="foodDiv">Favorite Food</div>
+    <greeting ref="greeting"></greeting>
+</div>
+
+new Vue({
+    el:'#tutorial16',
+    data:{
+        output: '.....Plese fill the textbox above',
+    }, 
+    methods: {
+        submit() {
+            console.log(this.$refs); //Get all refs
+            this.output = this.$refs.food.value;
+            this.$refs.foodDiv.innerText = this.output;
+            this.$refs.greeting.name = this.output;
+        }
+    }
+}) 
+```
 # Vue JS 2 Tutorial #17 - The Vue CLI
 # Vue JS 2 Tutorial #18 - Vue Files & The Root Component
 # Vue JS 2 Tutorial #19 - Nesting Components
