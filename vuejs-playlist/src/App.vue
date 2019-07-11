@@ -1,19 +1,21 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <p>Contoh Component global Registered</p>
-    <ninjas-global></ninjas-global>
-    <p>Contoh Component local Registered</p>
-    <ninjas-local></ninjas-local>
+    <app-header></app-header>
+    <app-ninjas></app-ninjas>
+    <app-footer></app-footer>    
   </div>
 </template>
 
 <script>
-import Ninjas from './Ninjas.vue'; // Registering local component
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import Ninjas from './components/Ninjas.vue';
 
 export default {
   components: {
-    'ninjas-local':Ninjas, // Registering local component
+    'app-header': Header,
+    'app-footer': Footer,
+    'app-ninjas': Ninjas, 
   },
   data () {
     return {

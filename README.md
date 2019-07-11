@@ -675,8 +675,97 @@ h1{
 </style>
 ```
 # Vue JS 2 Tutorial #21 - Nesting Components Examples
+Pada contoh di bawah, menggunakan 3 component : header, ninjas dan footer</br>
+Perhatikan cara menggunakan component di bawah ini, bila kurang jelas lihat bagian atas, ini adalah penerapan dari latihan-latihan di atas
 ```
+Header.vue
+<template>
+    <div>--- {{ title }} ---</div>    
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                title: 'Header Title',                    
+            }
+        }
+    }
+</script>
+<style scoped>
+</style>
+```
+```
+Ninjas.vue
+<template>
+    <div>
+        <div v-for="ninja in ninjas" :key="ninja" @click="ninja.show = !ninja.show">
+            <div>{{ ninja.name }}</div>
+            <div v-show="ninja.show">{{ ninja.speciality }}</div>
+        </div>
+    </div>    
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                title: 'Ninjas',
+                ninjas: [
+                    {name: 'Elvino', speciality: 'Programing', show: false},
+                    {name: 'Carinnia', speciality: 'Database', show: false},
+                    {name: 'Constantine', speciality: 'Drawing', show: false},
+                ]
+            }
+        }
+    }
+</script>
+<style scoped>
+</style>
+```
+```
+Footer.vue
+<template>
+    <div>--- {{ title }} ---</div>    
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                title: 'Footer Title',
+            }
+        }
+    }
+</script>
+<style scoped>
+</style>
+```
+```
+App.vue
+<template>
+  <div>
+    <app-header></app-header>
+    <app-ninjas></app-ninjas>
+    <app-footer></app-footer>    
+  </div>
+</template>
 
+<script>
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import Ninjas from './components/Ninjas.vue';
+
+export default {
+  components: {
+    'app-header': Header,
+    'app-footer': Footer,
+    'app-ninjas': Ninjas, 
+  },
+  data () {
+    return {
+      title: 'Ninjas',
+    }
+  }
+}
+</script>
 ```
 # Vue JS 2 Tutorial #22 - Props
 ```
