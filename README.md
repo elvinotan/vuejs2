@@ -580,7 +580,81 @@ export default {
 ```
 
 # Vue JS 2 Tutorial #19 - Nesting Components
+Pada bagian ini kita akan membuat component, registerd it, and use it. Pada contoh di bawah kita membuat component ninjas yang berupa array nama dan menampilkannya</br> 
+Ninja dapat di daftarkan dengan 2 cara </br>
+a. global : Di daftarkan di level root, sehingga semua anak-anak yg merupakan scopenya dapat menggunakannya</br>
+b. local : Di daftarakan di level component, sehingga hanya component tersebut yang dapat menggunaknannya</br>
 ```
+<template>
+    <div>
+        <ul>
+            <li v-for="(ninja, index) in ninjas" :key="ninja">{{index}}. {{ninja}}</li>
+        </ul>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                ninjas: ['Bayang Merah', 'Samurai X', 'Yu Gi Oh']
+            }
+        }
+    }
+</script>    
+
+<style></style>
+```
+
+Pada contoh di bawah kita menggunakan component ninja dan mendaftarkannya secara local (jgn lihat ninjas-global dulu).</br>
+Tahap-tahap menggunakan component local:</br>
+a. Lakukan import Vue component pada bagian component. Ex : import Ninjas from './Ninjas.vue';</br>
+b. Register it. Ex : components: {'ninjas-local':Ninjas }</br>
+```
+<template>
+  <div>
+    <div>{{title}}</div>
+    <p>Contoh Component global Registered</p>
+    <ninjas-global></ninjas-global>
+    <p>Contoh Component local Registered</p>
+    <ninjas-local></ninjas-local>
+  </div>
+</template>
+
+<script>
+import Ninjas from './Ninjas.vue'; // Registering local component
+
+export default {
+  components: {
+    'ninjas-local':Ninjas, // Registering local component
+  },
+  data () {
+    return {
+      title: 'Ninjas',
+    }
+  }
+}
+</script>
+
+<style></style>
+```
+
+Pada contoh di bawah kita menggunakan component ninja dan mendaftarkannya secara global (untuk tempalate lihat pada bagian atas).</br>
+Tahap-tahap menggunakan component global:</br>
+a. Lakukan import Vue component, pada bagian root. Ex : import Ninjas from './Ninjas.vue';</br>
+b. Register it. Ex : Vue.component('ninjas-global', Ninjas);</br>
+```
+import Vue from 'vue'
+import App from './App.vue'
+import Ninjas from './Ninjas.vue';
+
+// Registering global component
+Vue.component('ninjas-global', Ninjas);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
 
 ```
 # Vue JS 2 Tutorial #20 - Component CSS (scoped)
