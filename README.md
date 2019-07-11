@@ -503,6 +503,25 @@ new Vue({
 }) 
 ```
 # Vue JS 2 Tutorial #17 - The Vue CLI
+```
+The Vue CLI
+Create a dev enviroment workflow with webpack
+- Use ES6 Feature
+- Compile & Minify our JS into 1 file
+- Use single file templates
+- Compile everything on our machine, not in the browser
+- Live reload dev server
+
+Step on install (see : https://github.com/vuejs/vue-cli)
+1. install node js
+2. install vue cli : npm install -g vue-cli
+3. create project : vue init <template-name> <project-name>
+4. Example : vue init webpack-simple vuejs-playlist
+  After execute :
+  - cd vuejs-paylist
+  - npm install
+  - npm run dev
+```
 # Vue JS 2 Tutorial #18 - Vue Files & The Root Component
 # Vue JS 2 Tutorial #19 - Nesting Components
 # Vue JS 2 Tutorial #20 - Component CSS (scoped)
