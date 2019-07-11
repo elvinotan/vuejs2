@@ -503,29 +503,82 @@ new Vue({
 }) 
 ```
 # Vue JS 2 Tutorial #17 - The Vue CLI
-```
-The Vue CLI
-Create a dev enviroment workflow with webpack
-- Use ES6 Feature
-- Compile & Minify our JS into 1 file
-- Use single file templates
-- Compile everything on our machine, not in the browser
-- Live reload dev server
+The Vue CLI </br>
+Create a dev enviroment workflow with webpack</br>
+- Use ES6 Feature</br>
+- Compile & Minify our JS into 1 file</br>
+- Use single file templates</br>
+- Compile everything on our machine, not in the browser</br>
+- Live reload dev server</br>
 
-Step on install (see : https://github.com/vuejs/vue-cli)
-1. install node js
-2. install vue cli : npm install -g vue-cli
-3. create project : vue init <template-name> <project-name>
-4. Example : vue init webpack-simple vuejs-playlist
-  After execute :
-  - cd vuejs-paylist
-  - npm install
-  - npm run dev
-```
+Step on install (see : https://github.com/vuejs/vue-cli)</br>
+1. install node js</br>
+2. install vue cli : npm install -g vue-cli</br>
+3. create project : vue init <template-name> <project-name></br>
+4. Example : vue init webpack-simple vuejs-playlist</br>
+  After execute :</br>
+  - cd vuejs-paylist</br>
+  - npm install</br>
+  - npm run dev</br>
+
 # Vue JS 2 Tutorial #18 - Vue Files & The Root Component
+Penjelasan mengenai basic template auto generate code :</br>
+/src/assets : folder tempat meletakan images</br>
+File js di bawah akan di run sebagai root application. Karena kita menggunakan ES6 maka kita menggunakan import untuk meng-import component, yang nanti akan di convert oleh babel into valina js</br>
+Inti dari coding dibawah adalah, Vue instance mengarah ke #app sebagai container yang akan di isi oleh App.vue instance (#app berada di index.html)</br>
+Kenapa main.js tidak ada di index.html kalo dia itu main entry ? krn kita menggunakan webpack yang akan mengcompile semua js menjadi 1 file yaitu build.js, dan build.js akan di geneate secara on the fly.</br>
 ```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vuejs-playlist</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
 
 ```
+```
+import Vue from 'vue'
+import App from './App.vue'
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+```
+
+Standard dari *.vue file</br>
+```
+<template> // Html rendering
+  <div>
+    <h1>{{ title }}</h1>
+    <p>{{ greeting() }}</p>
+  </div>
+</template>
+
+<script> // JS Logic
+export default {
+  data () {
+    return {
+      title: 'Your first Vue file, woooiiii',
+    }
+  },
+  methods:{
+    greeting() {
+      return 'Heeeiiii, cowboy!!';
+    }
+  }
+}
+</script>
+
+<style> // Tampilan style
+</style>       
+```
+
 # Vue JS 2 Tutorial #19 - Nesting Components
 ```
 
