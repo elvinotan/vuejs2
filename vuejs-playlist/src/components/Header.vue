@@ -1,5 +1,5 @@
 <template>
-    <div @click="title='Change title'">--- {{ title }} ---</div>    
+    <div @click="changeTitle">--- {{ title }} ---</div>    
 </template>
 <script>
     export default {
@@ -9,6 +9,12 @@
         data() {
             return {
                 title: 'Header Title',                    
+            }
+        },
+        methods: {
+            changeTitle() {
+                this.title = 'Title Changed';
+                this.$emit('changeTitle', this.title);
             }
         }
     }

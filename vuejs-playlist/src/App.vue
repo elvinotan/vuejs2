@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header :title="title"></app-header>
+    <app-header :title="title" @changeTitle="gantiTitle($event)"></app-header>
     <app-ninjas :ninjas="ninjas"></app-ninjas>
     <app-ninjas :ninjas="ninjas"></app-ninjas>
     <app-footer :title="title"></app-footer>    
@@ -26,6 +26,11 @@ export default {
                   {name: 'Carinnia', speciality: 'Database', show: false},
                   {name: 'Constantine', speciality: 'Drawing', show: false},
               ]
+    }
+  }, 
+  methods : {
+    gantiTitle(title) {
+      this.title = title;
     }
   }
 }

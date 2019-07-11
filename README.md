@@ -805,8 +805,26 @@ Reference : Array, Object</br>
 Efek dari statement di atas adalah, bila pada level child mengubah data props primitive, maka data yang ada di parent tidak ada berubah, Sebaliknya bila level child mengubah data props reference, maka data yang ada di parent akan berubah, serta semua component yang menggunakan reference tersebut.</br>
 
 # Vue JS 2 Tutorial #24 - Events (child to parent)
+Pada contoh ini akan di demonstrasikan bagaimana caranya dari level child memenaggil event yang ada di parent</br>
+a. Untuk memanggil event parent kita menggunakan command $emit, ex:```this.$emit('changeTitle', this.title);``` yang bermakna, panggil event parent yang bernama changeTitle, dgn mengirim data string this.title
+b. Agar parent bisa menerima event yang di trigger dari child, maka perlu di deklarasikan. ex:```@changeTitle="gantiTitle($event)"```, yang bermakna, aku mendeklarasikan event changeTitle, silakan dipanggil, setelah di panggil aku akan panggil method local gantiTitle serta mengirim parameter yang di kirm oleh child
 ```
-
+methods: {
+    changeTitle() {
+        this.title = 'Title Changed';
+        this.$emit('changeTitle', this.title);
+    }
+}
+```
+```
+<app-header :title="title" @changeTitle="changeTitle($event)"></app-header>
+```
+```
+methods : {
+    changeTitle(title) {
+      this.title = title;
+    }
+}
 ```
 # Vue JS 2 Tutorial #25 - The Event Bus
 ```
