@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>{{title}}</div>
+    <h1>{{ title }}</h1>
     <p>Contoh Component global Registered</p>
     <ninjas-global></ninjas-global>
     <p>Contoh Component local Registered</p>
@@ -23,4 +23,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+h1{
+  color:purple
+}
+</style>

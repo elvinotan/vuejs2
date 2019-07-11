@@ -658,8 +658,21 @@ new Vue({
 
 ```
 # Vue JS 2 Tutorial #20 - Component CSS (scoped)
+Pada bagian ini menjelaskan mengenai scope dari CSS, scope pada css terdapat 2 tipe :</br>
+a. global : css bersifat global dan dapat gunakan oleh semua bagian.
+b. local : css bersifat local dan hanya take effect pada specific component saja.
 ```
+<style scoped> // Bersifat global
+h1{
+    color:green
+}
+</style>
 
+<style scoped> // Bersifat local
+h1{
+    color:green
+}
+</style>
 ```
 # Vue JS 2 Tutorial #21 - Nesting Components Examples
 ```
