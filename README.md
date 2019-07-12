@@ -1084,8 +1084,39 @@ Pada bagian ini kita mempelajari binding untuk tipe component select, perhatikan
 
 ```
 # Vue JS 2 Tutorial #32 - HTTP Requests
+Untuk melakukan http request Vue tidak memiliki build in mechanism, oleh sebab itu kita harus meng-install package lain, bisa axios atau vue-resource, saat ini kita akan menggunakan vue-resource</br>
+Agar bisa di gunakan secara global kita harus meregisterin vue-resource di bagian main.js, perhatikan bagian bawah</br>
+Setelah kita meng-registerin dan Vue.use(), maka kita akan punya akses ke this.$http untuk melakukan http method oprasional</br>
 ```
+npm install vue-resource --save
+lalu cek package.json seharusnya vue-resource sudah ter-install
+```
+```
+main.js
+import Vue from 'vue'
+import App from './App.vue'
+import VueResource from 'vue-resource';
 
+Vue.use(VueResource);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
+
+```
+```
+methods : {
+    save() {
+        this.$http.post('https://jsonplaceholder.typicode.com/posts',{
+            title: this.blog.title,
+            body: this.blog.content,
+            userId:1
+        }).then(res=> res.json())
+        .then(json => json)
+        .then(json => this.submitted = true);
+    }
+}
 ```
 # Vue JS 2 Tutorial #33 - GET Requests
 ```
