@@ -869,7 +869,7 @@ beforeUpdate: (Many) Event trigger sebelum update/perubahan state</br>
 updated: (Many) Event trigger setelah update selesai, bagus manipulasi data</br>
 beforeDestroy: (Once) Event trigger sebelum vue instance di destroy</br>
 destroyed: (Once) Event trigger setelah vue instance di detroy</br>
-![Vue Lifecycle](https://github.com/elvinotan/vuejs2/blob/master/images/lifecycle.png)
+![Vue Lifecycle](https://github.com/elvinotan/vuejs2/blob/master/images/lifecycle.png) 
 ```
 
 ```
