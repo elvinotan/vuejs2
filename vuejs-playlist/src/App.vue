@@ -1,43 +1,30 @@
 <template>
   <div>
-    <app-header :title="title" @changeTitle="gantiTitle($event)"></app-header>
-    <app-ninjas :ninjas="ninjas"></app-ninjas>
-    <app-ninjas :ninjas="ninjas"></app-ninjas>
-    <app-footer :title="title"></app-footer>    
+    <form-helper>
+      <div slot="form-header"><h1>{{ headerTitle }}</h1></div>
+      <div slot="form-body"><h1>{{ bodyTitle }}</h1></div>
+      <div slot="form-footer"><h1>{{ footerTitle }}</h1></div>
+      <div><h1>Tampa menggunakan Slot</h1></div>
+    </form-helper>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import Ninjas from './components/Ninjas.vue';
+  import FormHelper from './components/FormHelper';
 
-export default {
-  components: {
-    'app-header': Header,
-    'app-footer': Footer,
-    'app-ninjas': Ninjas, 
-  },
-  data () {
-    return {
-      title: 'Ninjas Vue',
-      ninjas: [
-                  {name: 'Elvino', speciality: 'Programing', show: false},
-                  {name: 'Carinnia', speciality: 'Database', show: false},
-                  {name: 'Constantine', speciality: 'Drawing', show: false},
-              ]
-    }
-  }, 
-  methods : {
-    gantiTitle(title) {
-      this.title = title;
+  export default {
+    components: { 'form-helper': FormHelper },
+
+    data() {
+      return { 
+        headerTitle:'Header Title',
+        bodyTitle:'Body Title',
+        footerTitle:'Footer Title',
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-h1{
-  color:purple
-}
+  h1 { color:purple }
 </style>

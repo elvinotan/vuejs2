@@ -870,11 +870,73 @@ updated: (Many) Event trigger setelah update selesai, bagus manipulasi data</br>
 beforeDestroy: (Once) Event trigger sebelum vue instance di destroy</br>
 destroyed: (Once) Event trigger setelah vue instance di detroy</br>
 ![Vue Lifecycle](https://github.com/elvinotan/vuejs2/blob/master/images/lifecycle.png) 
-```
 
-```
 # Vue JS 2 Tutorial #27 - Slots
+Slot di gunakan bila kita ingin menginject part component ke suatu continer, slot dapat bisa di bedakan dengan menggunakan name ```<slot name='form-header'></slot>```<br>
+Apablia slot tidak menggunakan name, maka hanya part yang tanpa name yang akan di inject</br>
+Property tidak dapat di overwrite dari slot container</br>
+Berbeda dengan property, sStyle dapat meng-overwrite dari slot continer</br>
+Sangat bagus untuk dijadikan form container agar seragam</br>
 ```
+FormVue.vue
+<template>
+    <div>
+        <h1>Please Fill The Forms</h1>
+        <slot name="form-header"></slot>
+        <slot name="form-body"></slot>
+        <slot name="form-footer"></slot>
+        <slot></slot>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                headerTitle:'Try to overwrite slot but it not working',
+                bodyTitle:'Try to overwrite slot but it not working',
+                footerTitle:'Try to overwrite slot but it not working',
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    h1 { color:green }
+</style>
+```
+```
+App.vue
+<template>
+  <div>
+    <form-helper>
+      <div slot="form-header"><h1>{{ headerTitle }}</h1></div>
+      <div slot="form-body"><h1>{{ bodyTitle }}</h1></div>
+      <div slot="form-footer"><h1>{{ footerTitle }}</h1></div>
+      <div><h1>Tampa menggunakan Slot</h1></div>
+    </form-helper>
+  </div>
+</template>
+
+<script>
+  import FormHelper from './components/FormHelper';
+
+  export default {
+    components: { 'form-helper': FormHelper },
+
+    data() {
+      return { 
+        headerTitle:'Header Title',
+        bodyTitle:'Body Title',
+        footerTitle:'Footer Title',
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  h1 { color:purple }
+</style>
 
 ```
 # Vue JS 2 Tutorial #28 - Dynamic Components
