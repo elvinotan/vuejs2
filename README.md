@@ -1175,7 +1175,40 @@ App.vue
 </style>
 ```
 # Vue JS 2 Tutorial #34 - Custom Directives
+v-on, v-for, v-bind, adalah default vue directive. Selain itu kita juga bisa membuat directive kita sendiri</br>
+Pada contoh di bawah kita membut 2 directive, v-rainbow dan v-soeccolor</br>
+Dalam pembuatan Directive kita menggunakan Vue.directive(), dan method bind yang memiliki 3 argument</br>
+a. el: Html tag element</br>
+b. binding: Binding value </br>
+c. vnode: Gax tau ini apa </br>
+
 ```
+<div v-for="blog in blogs" :key="blog.id">
+    <div v-rainbow>{{ blog.title }}</div>
+    <article v-speccolor="'black'">{{ blog.body }}</article>
+    <br/>
+</div>
+```
+```
+import Vue from 'vue'
+import App from './App.vue'
+
+Vue.directive('rainbow',{
+  bind(el, binding, vnode) {
+    el.style.color = '#'+Math.random().toString().slice(2,8);
+  }
+})
+
+Vue.directive('speccolor', {
+  bind(el, binding, vnode) {
+    el.style.color = binding.value;
+  }
+});
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
 
 ```
 # Vue JS 2 Tutorial #35 - Filters
