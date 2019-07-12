@@ -1053,7 +1053,34 @@ Pada bagian ini kita mempelajari binding untuk tipe component checkbox, untuk ch
 
 ```
 # Vue JS 2 Tutorial #31 - Select Box Binding
+Pada bagian ini kita mempelajari binding untuk tipe component select, perhatikan cara binding value</br>
 ```
+<template>
+    <div>
+        <div>Blog Title</div>
+        <div>Blog Author</div>
+        <div>
+            <select v-model="blog.author">
+                <option v-for="author in authors" :key="author" :value="author">{{author}}</option>
+            </select>
+        </div>
+        <div>--------------------</div>
+        <div>Preview</div>
+        <div>Author</div>
+        <div>{{ blog.author }}</div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                blog: { author:'' },
+                authors: ['Burger', 'Pizza', 'Lasagna']
+            }
+        }
+    }
+</script>
 
 ```
 # Vue JS 2 Tutorial #32 - HTTP Requests
