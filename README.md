@@ -772,7 +772,7 @@ Props digunakan sebagai teknik passing data dari parent ke child</br>
 Untuk passing prop kita menggunakan v-bind:{props name}={value} atau :{props name}={value}. Bila tidak menggunakan v-bind, maka data di anggap sebagai string.</br>
 Untuk menerima props dari parent dapat dilakukan dgn cara:</br>
 ```props:['ninjas']``` namun cara ini kurang prakstis krn tidak ada validasi terhadap props tersebut</br>
-```props:{ ninjas: { type: Array, required: true } }``` cara ini lebih baik, karena props akan di validasi, dan akan error bila tidak memenuhi kriteria validation</br>
+```props:{ ninjas: { type: Array, required: true, default: [] } }``` cara ini lebih baik, karena props akan di validasi, dan akan error bila tidak memenuhi kriteria validation, dan yang terpenting ada nilai defaultnya bagus untuk component</br>
 Data props yang di passing oleh parent bisa di access kayaknya properties</br>
 ```
 <template>
@@ -786,7 +786,7 @@ Data props yang di passing oleh parent bisa di access kayaknya properties</br>
 <script>
     export default {
         props:{
-            ninjas: { type: Array, required: true }
+            ninjas: { type: Array, required: true, default: [] }
         },
         data() {
             return {
@@ -1119,8 +1119,60 @@ methods : {
 }
 ```
 # Vue JS 2 Tutorial #33 - GET Requests
+Pada contoh di bawah kita mendemonstrasikan cara mengambil data dengan method get. </br>
+Pengambilan data dilakukan pada lifecycle hook created (lihat bagian atau untuk lifecyle hook)</br>
 ```
+ShowBlog.vue
+<template>
+    <div>
+        <div id='show-blog-component'> {{title}} </div>    
+        <div v-for="blog in blogs" :key="blog.id">
+            <div>{{ blog.title }}</div>
+            <article>{{ blog.body }}</article>
+            <br/>
+        </div>
+    </div>
+</template>
+<script>
+    export default{
+        el: '#show-blog-component',
+        data() {
+            return {
+                title: 'List Of Blogs',
+                blogs: []
+            }
+        },
+        created() {
+            this.$http.get('https://jsonplaceholder.typicode.com/posts')
+            .then(data => data.json())
+            .then(data => this.blogs = data.slice(0,10));
+        }        
+    }
+</script>
+```
+```
+App.vue
+<template>
+  <div>
+    <show-blog></show-blog>
+  </div>
+</template>
 
+<script>
+  import ShowBlog from './components/ShowBlog'; 
+
+  export default {
+    components: { 'show-blog': ShowBlog},
+
+    data() {
+      return {}
+    }
+  }
+</script>
+
+<style scoped>
+  h1 { color:purple }
+</style>
 ```
 # Vue JS 2 Tutorial #34 - Custom Directives
 ```
