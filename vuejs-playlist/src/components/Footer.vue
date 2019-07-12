@@ -2,6 +2,7 @@
     <div>--- {{ title }} ---</div>    
 </template>
 <script>
+    import { bus } from '../main';
     export default {
         props: {
             title : { type: String }
@@ -10,6 +11,11 @@
             return {
                 title: 'Footer Title',
             }
+        },
+        created() {
+            bus.$on('titleChange', (data)=>{
+                this.title = data;
+            })
         }
     }
 </script>

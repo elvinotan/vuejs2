@@ -827,8 +827,37 @@ methods : {
 }
 ```
 # Vue JS 2 Tutorial #25 - The Event Bus
-```
+Kalo pada bab sebelumnya, kita menggunakan parent sebagai media perantara komunikasi antar child component, pada bab ini kita membahas komunikasi dengan menggunakan bus event</br>
+Bus event hanyalah berupa vue instance yang di gunakan sebagai event traffic</br>
+Cara penggunakan Bus Event:</br>
+a. Create vue instance, lalu export agar bisa di gunakan oleh component yang trigger dan listen, ex: ```export const bus = new Vue({});```</br>
+b. Import bus event dan trigger event di child component, ex: bus.$emit('titleChange', this.title);
+c. Import bus event dan tangkap event di other child event, ex: ```bus.$on('titleChange', (data)=>{ this.title = data; })```
 
+```
+main.js
+export const bus = new Vue({});
+```
+```
+Header.vue
+import { bus } from '../main';
+
+methods: {
+    changeTitle() {
+        this.title = 'Title Changed';
+        bus.$emit('titleChange', this.title);
+    }
+}
+```
+```
+Footer.vue
+import { bus } from '../main';
+
+created() {
+    bus.$on('titleChange', (data)=>{
+        this.title = data;
+    })
+}
 ```
 # Vue JS 2 Tutorial #26 - Life-cycle Hooks
 ```
