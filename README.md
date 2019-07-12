@@ -1492,10 +1492,7 @@ ShowBlog.vue
 </div>
 ```
 # Vue JS 2 Tutorial #43 - Posting to Firebase
-```
+Tidak ada relasi dgn pekerjaan, sehingga tidak di dokumentasi
 
-```
 # Vue JS 2 Tutorial #44 - Retrieving Posts from Firebase
-```
-
-```
+Tidak ada relasi dgn pekerjaan, sehingga tidak di dokumentasi
