@@ -995,8 +995,33 @@ App.vue
 </style>
 ```
 # Vue JS 2 Tutorial #29 - Input Binding (Creating a blog, part 1)
+Untuk melakukan binding, atau two way binding dapat dilakukan dgn cara v-model, hal ini sudah di bahas di bagian sebelumnya<br>
+Untuk binding, setiap keypress akan langsung take effect ke property data, untuk mencegah ini kita bisa menggunakan .lazy, sehingga property akan berubah setiap blur atau enter</br>
 ```
+<template>
+    <div>
+        <div>Blog Title</div>
+        <div><input type='text' v-model.lazy="blog.title"></div>
+        <div>Blog Content</div>
+        <div><input type='text' v-model.lazy="blog.content"></div>
+        <div>--------------------</div>
+        <div>Preview</div>
+        <div>Blog Title</div>
+        <div>{{ blog.title }}</div>
+        <div>Blog Content</div>
+        <div>{{ blog.content }}</div>
+    </div>
+</template>
 
+<script>
+    export default {
+        data() {
+            return {
+                blog: { title:'', content:'' }
+            }
+        }
+    }
+</script>
 ```
 # Vue JS 2 Tutorial #30 - Checkbox Binding
 ```
