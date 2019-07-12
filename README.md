@@ -1442,9 +1442,9 @@ exact di gunakan sebagai tanda, akan aktif bila semua url pattern terpenuhi, buk
 # Vue JS 2 Tutorial #42 - Route Parameters
 Pada bagian ini kita mempelajari bagimana cara mengirim parameter dan menerima parameter</br>
 Terlebih dahulu kita harus buat url patten pada router.js</br>
-Router : { path: '/single/:id', component: SingleBlog }
-Cara Kirim : ```<router-link :to="'/single/'+blog.id">{{ blog.title | filter-uppercase }}</router-link>```
-Cara Terima : ```id: this.$route.params.id,```
+Router : { path: '/single/:id', component: SingleBlog }</br>
+Cara Kirim : ```<router-link :to="'/single/'+blog.id">{{ blog.title | filter-uppercase }}</router-link>```</br>
+Cara Terima : ```id: this.$route.params.id,```</br>
 ```
 router.js
 import AddBlog from './components/AddBlog';
