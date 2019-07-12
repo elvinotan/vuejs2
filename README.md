@@ -860,6 +860,7 @@ created() {
 }
 ```
 # Vue JS 2 Tutorial #26 - Life-cycle Hooks
+![Vue Lifecycle](https://github.com/elvinotan/vuejs2/blob/master/images/lifecycle.png)
 ```
 
 ```
