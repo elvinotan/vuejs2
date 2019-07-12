@@ -5,7 +5,7 @@
         <input type="text" v-model="search" placeholder="Input search"/>
         <br/>
         <div v-for="blog in searchBlog" :key="blog.id">
-            <div v-rainbow>{{ blog.title | filter-uppercase }}</div>
+            <router-link :to="'/single/'+blog.id"><div v-rainbow>{{ blog.title | filter-uppercase }}</div></router-link>
             <article v-speccolor="'gray'">{{ blog.body | filter-snippet }}</article>
             <br/>
         </div>

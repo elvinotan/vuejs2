@@ -1440,8 +1440,56 @@ exact di gunakan sebagai tanda, akan aktif bila semua url pattern terpenuhi, buk
 </style>
 ```
 # Vue JS 2 Tutorial #42 - Route Parameters
+Pada bagian ini kita mempelajari bagimana cara mengirim parameter dan menerima parameter</br>
+Terlebih dahulu kita harus buat url patten pada router.js</br>
+Router : { path: '/single/:id', component: SingleBlog }
+Cara Kirim : ```<router-link :to="'/single/'+blog.id">{{ blog.title | filter-uppercase }}</router-link>```
+Cara Terima : ```id: this.$route.params.id,```
 ```
+router.js
+import AddBlog from './components/AddBlog';
+import ShowBlog from './components/ShowBlog';
+import SingleBlog from './components/SingleBlog';
 
+export default [
+    { path: '/', component: ShowBlog },
+    { path: '/add', component: AddBlog },
+    { path: '/single/:id', component: SingleBlog }
+]
+```
+```
+SingleBlog.vue
+<template>
+    <div>
+        <div><b>{{ blog.title }}</b></div>
+        <article>{{ blog.body }}</article>
+    </div>
+</template>
+<script>
+    export default {
+        data() {
+            return {
+                id: this.$route.params.id,
+                blog: {}
+            }
+        },
+        created() {
+            this.$http.get('https://jsonplaceholder.typicode.com/posts/'+this.id)
+            .then(data => data.json())
+            .then(data => this.blog = data);
+        }
+    }
+</script>
+<style>
+</style>
+```
+```
+ShowBlog.vue
+<div v-for="blog in searchBlog" :key="blog.id">
+    <router-link :to="'/single/'+blog.id">{{ blog.title | filter-uppercase }}</router-link>
+    <article v-speccolor="'gray'">{{ blog.body | filter-snippet }}</article>
+    <br/>
+</div>
 ```
 # Vue JS 2 Tutorial #43 - Posting to Firebase
 ```
