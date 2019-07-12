@@ -6,7 +6,6 @@
         <br/>
         <div v-for="blog in searchBlog" :key="blog.id">
             <div v-rainbow>{{ blog.title | filter-uppercase }}</div>
-            <article v-speccolor="'gray'">{{ blog.body | filter-snippet }}</article>
             <br/>
         </div>
     </div>
@@ -50,6 +49,6 @@
                 }
             }
         },
-        mixins: [cariBlogs]
+        mixins: [cariBlogs]        
     }
 </script>

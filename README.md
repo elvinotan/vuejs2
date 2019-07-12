@@ -1309,8 +1309,47 @@ Berbeda dgn filter untuk directive berupa object bukan function, mohon mengacu p
 </script>
 ```
 # Vue JS 2 Tutorial #38 - Mixins
+Mixins are a flexible way to distribute reusable functionalities for Vue components</br>
+Mixin adalah potongan coding js yang berupa computed method yang dapat di gunakan secara berulang-ulang</br>
+Setiap nama function pada mixin digunakan sebagai id yang akan di gunakan oleh componet, pada contoh di bawah adalah searchBlog()</br>
+Untuk menggunkan Mixin, pertama kita harus mengimportnya lalu di masukan pada property mixins yang berupa array</br>
+Ingat mixin mengacu pada nama function bukan nama import</br>
 ```
+SearchMixin.js
+export default {
+    computed: {
+        searchBlog() {
+            return this.blogs.filter(e=>{
+                if (this.search == '') return true;
+                return e.title.match(this.search);
+            })
+        }
+    }
+}
+```
+```
+div v-for="blog in searchBlog" :key="blog.id">
+    <div v-rainbow>{{ blog.title | filter-uppercase }}</div>
+    <article v-speccolor="'gray'">{{ blog.body | filter-snippet }}</article>
+    <br/>
+</div>
+```
+```
+<script>
+    import cariBlogs from '../mixins/SearchMixin';
 
+    export default{
+        el: '#show-blog-component',
+        data() {
+            return {
+                title: 'List Of Blogs',
+                blogs: [],
+                search: ''
+            }
+        },
+        mixins: [cariBlogs]
+    }
+</script>
 ```
 # Vue JS 2 Tutorial #39 - Setting up Routing
 ```
