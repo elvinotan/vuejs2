@@ -1257,8 +1257,56 @@ computed: {
 }    
 ```
 # Vue JS 2 Tutorial #37 - Registering Things Locally
+Kita sudah belajar mengenai filter dan directive. Namun semua itu bersifat global, yang artinya bisa di gunakan oleh seluruh component, kalo semua di buat secara global apa tidak akan penuh dan merepotkan ? </br>
+Oleh sebab itu Vue juga menyediakan fasilitas filter dan directive yang besifat local.</br>
+Semua filter akan di tampung di property filters, dan di jadikan sebuah function dimana tanda - di ganti jadi firstLetter Uppercase</br>
+Berbeda dgn filter untuk directive berupa object bukan function, mohon mengacu pada coding di bawah, untk penjelasan parameter bisa di lihat di tutorial sebelumnya</br>
 ```
-
+<script>
+    export default{
+        el: '#show-blog-component',
+        data() {
+            return {
+                title: 'List Of Blogs',
+                blogs: [],
+                search: ''
+            }
+        },
+        created() {
+            this.$http.get('https://jsonplaceholder.typicode.com/posts')
+            .then(data => data.json())
+            .then(data => this.blogs = data.slice(0,10));
+        },
+        computed: {
+            searchBlog() {
+                return this.blogs.filter(e=>{
+                    if (this.search == '') return true;
+                    return e.title.match(this.search);
+                })
+            }
+        }, 
+        filters: {
+            filterUppercase(value) {
+                return value.toUpperCase();
+            },
+            filterSnippet(value) {
+                return value.slice(0, 100)+'...';
+            }
+        },
+        directives: {
+            'speccolor':{
+                bind(el, binding, vnode) {
+                    el.style.color = binding.value;
+                }
+            },
+            'rainbow': {
+                bind(el, binding, vnode) {
+                    el.style.color = '#'+Math.random().toString().slice(2,8);
+                }
+            }
+        }        
+    }
+</script>
 ```
 # Vue JS 2 Tutorial #38 - Mixins
 ```

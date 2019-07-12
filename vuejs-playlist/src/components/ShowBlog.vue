@@ -6,7 +6,7 @@
         <br/>
         <div v-for="blog in searchBlog" :key="blog.id">
             <div v-rainbow>{{ blog.title | filter-uppercase }}</div>
-            <article v-speccolor="'black'">{{ blog.body | filter-snippet }}</article>
+            <article v-speccolor="'gray'">{{ blog.body | filter-snippet }}</article>
             <br/>
         </div>
     </div>
@@ -32,6 +32,26 @@
                     if (this.search == '') return true;
                     return e.title.match(this.search);
                 })
+            }
+        }, 
+        filters: {
+            filterUppercase(value) {
+                return value.toUpperCase();
+            },
+            filterSnippet(value) {
+                return value.slice(0, 100)+'...';
+            }
+        },
+        directives: {
+            'speccolor':{
+                bind(el, binding, vnode) {
+                    el.style.color = binding.value;
+                }
+            },
+            'rainbow': {
+                bind(el, binding, vnode) {
+                    el.style.color = '#'+Math.random().toString().slice(2,8);
+                }
             }
         }        
     }
