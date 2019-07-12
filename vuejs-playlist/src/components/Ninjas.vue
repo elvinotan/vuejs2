@@ -16,6 +16,24 @@
             return {
                 title: 'Ninjas',                
             }
+        },
+        beforeCreate(){
+            alert('BeforeCreate');
+        },
+        created(){
+            alert('Create');
+        }, 
+        beforeMount() {
+            alert('BeforeMount');
+        },
+        mounted(){
+            alert('Mounted');
+        },
+        beforeUpdate() {
+            alert('BeforeUpdate');
+        },
+        updated() {
+            alert('Updated');
         }
     }
 </script>

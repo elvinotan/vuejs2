@@ -860,6 +860,15 @@ created() {
 }
 ```
 # Vue JS 2 Tutorial #26 - Life-cycle Hooks
+Vue memiliki beberapa lifecycle hook, antara lain :</br>
+beforeCreate: (Once) Event trigger sebelum create vue instance, blm punya access ke data dan method</br>
+created: (Once) Event yang di trigger setelah vue instance di create. Sudah punya access ke data dan method, bagus untuk fetch data ke server</br>
+beforeMount: (Once) Event trigger sebelum render DOM, blm punya access ke DOM</br>
+mounted: (Once) Event trigger setelah render DOM. Sudah ada access ke DOM, bagus untuk manipulasi DOM</br>
+beforeUpdate: (Many) Event trigger sebelum update/perubahan state</br>
+updated: (Many) Event trigger setelah update selesai, bagus manipulasi data</br>
+beforeDestroy: (Once) Event trigger sebelum vue instance di destroy</br>
+destroyed: (Once) Event trigger setelah vue instance di detroy</br>
 ![Vue Lifecycle](https://github.com/elvinotan/vuejs2/blob/master/images/lifecycle.png)
 ```
 
