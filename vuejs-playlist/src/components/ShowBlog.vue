@@ -2,8 +2,8 @@
     <div>
         <div id='show-blog-component'> {{title}} </div>    
         <div v-for="blog in blogs" :key="blog.id">
-            <div v-rainbow>{{ blog.title }}</div>
-            <article v-speccolor="'black'">{{ blog.body }}</article>
+            <div v-rainbow>{{ blog.title | filter-uppercase }}</div>
+            <article v-speccolor="'black'">{{ blog.body | filter-snippet }}</article>
             <br/>
         </div>
     </div>

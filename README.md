@@ -1212,8 +1212,25 @@ new Vue({
 
 ```
 # Vue JS 2 Tutorial #35 - Filters
+Filter di sini bukan .filter milik javascript ES6 ya</br>
+filter adalah fungsi layaknya formatter yang dimiliki oleh Vue, saat ini Vue tidak mendukung build in filter</br>
+Cara menggunakannya adalah dengan menggunakan tag | + nama filter ```{{ blog.title | filter-uppercase }}```</br>
+Untuk membuat vue kita menggunakan tag Vue.filter({namefilter}, (){}) dan parameter ke 2 berupa function yang memiliki argument, yang merupakan data mentah untuk kita manipulasi</br>
 ```
+<div v-for="blog in blogs" :key="blog.id">
+    <div v-rainbow>{{ blog.title | filter-uppercase }}</div>
+    <article v-speccolor="'black'">{{ blog.body | filter-snippet }}</article>
+    <br/>
+</div>
+```
+```
+Vue.filter('filter-uppercase', value => {
+  return value.toUpperCase();
+})
 
+Vue.filter('filter-snippet', value => {
+  return value.slice(0, 100)+'...';
+})
 ```
 # Vue JS 2 Tutorial #36 - Custom Search Filter
 ```

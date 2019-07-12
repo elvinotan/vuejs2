@@ -16,6 +16,14 @@ Vue.directive('speccolor', {
   }
 });
 
+Vue.filter('filter-uppercase', value => {
+  return value.toUpperCase();
+})
+
+Vue.filter('filter-snippet', value => {
+  return value.slice(0, 100)+'...';
+})
+
 export const bus = new Vue({});
 
 new Vue({
