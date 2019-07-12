@@ -1,25 +1,27 @@
 <template>
   <div>
-    <form-helper>
-      <div slot="form-header"><h1>{{ headerTitle }}</h1></div>
-      <div slot="form-body"><h1>{{ bodyTitle }}</h1></div>
-      <div slot="form-footer"><h1>{{ footerTitle }}</h1></div>
-      <div><h1>Tampa menggunakan Slot</h1></div>
-    </form-helper>
+    <keep-alive>
+      <component :is='selectedForm'></component>
+    </keep-alive>
+    <button @click="changeForm">Change Form</button>
   </div>
 </template>
 
 <script>
-  import FormHelper from './components/FormHelper';
+  import FormOne from './components/FormOne';
+  import FormTwo from './components/FormTwo';
 
   export default {
-    components: { 'form-helper': FormHelper },
+    components: { 'form-one': FormOne, 'form-two': FormTwo },
 
     data() {
-      return { 
-        headerTitle:'Header Title',
-        bodyTitle:'Body Title',
-        footerTitle:'Footer Title',
+      return {
+        selectedForm : 'form-one',
+      }
+    },
+    methods: {
+      changeForm() {
+        this.selectedForm = (this.selectedForm == 'form-one') ? 'form-two' : 'form-one';
       }
     }
   }

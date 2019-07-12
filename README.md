@@ -937,11 +937,62 @@ App.vue
 <style scoped>
   h1 { color:purple }
 </style>
-
 ```
 # Vue JS 2 Tutorial #28 - Dynamic Components
+Dynamic component di gunakan bila kita mau secara dinamis menampilkan component secara programatically</br>
+Pada contoh di bawah terdapat 2 component FormOne.vue dan FormTwo.vue, kita ingin menampilkan bergantian secara trigger event.</br>
+```<component :is='selectedForm'></component>```, Dengan menggunakan component dan is binding, kita dapat secara dinamis replace isi dari component, dimana selectedForm berisi nama component</br>
+Perhatikan bila kita switch antar component nilai yang sudah kita isi akan hilang, hal ini di sebabkan karena setiap melakukan switch component maka Vue instance akan di destory dan di re-recreate. Untuk mencegah hal tersebut kita dapat meng-wrap ```<component>``` dengan tag ```<keep-alive>```</br>
 ```
+FormOne.vue
+<template>
+    <div>
+        <label>Form One</label><input type='text'/>
+    </div>    
+</template>
+```
+```
+FormTwo.vue
+<template>
+    <div>
+        <label>Form Two</label><input type='text'/>
+    </div>    
+</template>
+```
+```
+App.vue
+<template>
+  <div>
+    <keep-alive>
+      <component :is='selectedForm'></component>
+    </keep-alive>
+    <button @click="changeForm">Change Form</button>
+  </div>
+</template>
 
+<script>
+  import FormOne from './components/FormOne';
+  import FormTwo from './components/FormTwo';
+
+  export default {
+    components: { 'form-one': FormOne, 'form-two': FormTwo },
+
+    data() {
+      return {
+        selectedForm : 'form-one',
+      }
+    },
+    methods: {
+      changeForm() {
+        this.selectedForm = (this.selectedForm == 'form-one') ? 'form-two' : 'form-one';
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  h1 { color:purple }
+</style>
 ```
 # Vue JS 2 Tutorial #29 - Input Binding (Creating a blog, part 1)
 ```
