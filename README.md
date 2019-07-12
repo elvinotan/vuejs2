@@ -1408,9 +1408,17 @@ App.vue
 
 ```
 # Vue JS 2 Tutorial #40 - Hash vs History (Routing)
+Saat ini, meski kita sudah bisa berpindah halaman tapi kalo di lihat address url berbeda seperti bisanya
+http://localhost:8080/#/add. Terdapat # pada url, ini menandakan kalo url yang kita masukan, tidak meminta ke server, tapi lebih ke arah cari yang ada di dalam page tersebut.</br>
+Bila kita ingin menghilangkan tanda # menjadi http://localhost:8080/add kita perlu mengubah router menjadi mode history (lihat pada snippet)</br>
+Sebenarnya logikanya adalah bila saat kita minta http://localhost:8080/add maka kita minta halaman add.html. Namun yang perlu kita lakukan dari sever adalah selalu return index.html. Setelah index.html ke render, vue akan cukup pinter mengarahkan ke path /add
+```
+const router = new VueRouter({
+  routes: Routers,
+  mode: 'history'
+})
 ```
 
-```
 # Vue JS 2 Tutorial #41 - Adding Router Links
 ```
 

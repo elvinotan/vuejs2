@@ -8,7 +8,8 @@ Vue.use(VueResource);
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  routes: Routers
+  routes: Routers,
+  mode: 'history'
 })
 
 export const bus = new Vue({});
