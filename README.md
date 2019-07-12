@@ -1352,7 +1352,59 @@ div v-for="blog in searchBlog" :key="blog.id">
 </script>
 ```
 # Vue JS 2 Tutorial #39 - Setting up Routing
+Pada bab ini kita akan setup cara pemasangan router, untuk router kita harus menggunakan third-party yaitu vue-router</br>
+Agar router kita rapih kita membuat external file routers.js yang berisi path url dan isi componentnya</br>
+Untuk menggunkan component vue-router kita harus mengimport vue-router dan gunakan dgn cara Vue.use()</br>
+Lalu buat VueRouter instance yang nanti akan di passing ke Vue global</br>
+Agar component router dapat tampil dia butuh suatu placeholder, dan placeholder ini dalam betuk tag ```<router-view>```</br>
 ```
+npm install vue-router --save
+```
+```
+routers.js
+import AddBlog from './components/AddBlog';
+import ShowBlog from './components/ShowBlog';
+
+export default [
+    { path: '/', component: ShowBlog },
+    { path: '/add', component: AddBlog }
+]
+```
+```
+main.js
+import Vue from 'vue'
+import App from './App.vue'
+import VueResource from 'vue-resource';
+import VueRouter from 'vue-router';
+import Routers from './routers';
+
+Vue.use(VueResource);
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+  routes: Routers
+})
+
+new Vue({
+  el: '#app',
+  render: h => h(App),
+  router: router
+})
+```
+```
+App.vue
+<template>
+  <div>
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+ </script>
+
+<style scoped>
+  h1 { color:purple }
+</style>
 
 ```
 # Vue JS 2 Tutorial #40 - Hash vs History (Routing)
