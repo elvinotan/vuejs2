@@ -1233,8 +1233,28 @@ Vue.filter('filter-snippet', value => {
 })
 ```
 # Vue JS 2 Tutorial #36 - Custom Search Filter
+Sebenarnya dulu pernah ada yang seperti ini ```<div v-for="blog in blogs | filterBlogs" :key="blog.id">```
+jadi di bagian looping kita bikin filter filterBlogs, tetapi katanya ini sgt menghabiskan perfoma</br>
+Maka dari itu sekarang untuk filter list, kita menggunakan computed</br>
+Sebenarnya ini lebih ke arah menjelaskan ES6 bukan vue, yaitu teknik filter</br>
 ```
-
+<input type="text" v-model="search" placeholder="Input search"/>
+<br/>
+<div v-for="blog in searchBlog" :key="blog.id">
+    <div v-rainbow>{{ blog.title | filter-uppercase }}</div>
+    <article v-speccolor="'black'">{{ blog.body | filter-snippet }}</article>
+    <br/>
+</div>
+```
+```
+computed: {
+    searchBlog() {
+        return this.blogs.filter(e=>{
+            if (this.search == '') return true;
+            return e.title.match(this.search);
+        })
+    }
+}    
 ```
 # Vue JS 2 Tutorial #37 - Registering Things Locally
 ```
