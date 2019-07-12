@@ -1024,7 +1024,32 @@ Untuk binding, setiap keypress akan langsung take effect ke property data, untuk
 </script>
 ```
 # Vue JS 2 Tutorial #30 - Checkbox Binding
+Pada bagian ini kita mempelajari binding untuk tipe component checkbox, untuk checkbox kita melakukan binding ke property tipe Array</br>
 ```
+<template>
+    <div>
+        <div>Blog Title</div>
+        <div>Programer : <input type='checkbox' value="Programer" v-model="blog.categories"/></div>
+        <div>Database : <input type='checkbox' value="Database" v-model="blog.categories"/></div>
+        <div>Tester : <input type='checkbox' value="Tester" v-model="blog.categories"/></div>
+        <div>--------------------</div>
+        <div>Preview</div>
+        <div>Blog Categories</div>
+        <div v-for="category in blog.categories" :key="category">
+            <div>{{category}}</div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+                blog: { categories: [] }
+            }
+        }
+    }
+</script>
 
 ```
 # Vue JS 2 Tutorial #31 - Select Box Binding
