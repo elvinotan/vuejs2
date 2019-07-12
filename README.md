@@ -1420,8 +1420,24 @@ const router = new VueRouter({
 ```
 
 # Vue JS 2 Tutorial #41 - Adding Router Links
+Setelah kita dapat menggunakan navigasi lewat url address, maka mestinya kita mudah untuk membuat navigasi bar lewat link, sebenarnya kita cukup membuat a href link, tapi router sendiri telah menyediakan tag router-link yang lebih efesien</br>
+exact di gunakan sebagai tanda, akan aktif bila semua url pattern terpenuhi, bukan hanya sebagian</br>
 ```
+<template>
+    <nav>
+        <ul>
+            <li><router-link to='/' exact>Home</router-link></li>
+            <li><router-link to='/add' exact>Add Blogs</router-link></li>
+        </ul>    
+    </nav>
+</template>
 
+<style>
+    .router-link-active {
+        color:green;
+        background-color: grey
+    }
+</style>
 ```
 # Vue JS 2 Tutorial #42 - Route Parameters
 ```
