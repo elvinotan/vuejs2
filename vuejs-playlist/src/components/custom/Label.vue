@@ -1,7 +1,7 @@
 <template>
   <label v-show="show">
     <slot></slot>
-    <span v-show="required">*</span>
+    <span v-show="required" class="required">*</span>
   </label>
 </template>
 <script>
@@ -13,4 +13,7 @@ export default {
 };
 </script>
 <style>
+.required {
+  color: red;
+}
 </style>

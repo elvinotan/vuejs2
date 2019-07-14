@@ -1,7 +1,8 @@
 <template>
   <div>
-    <e-short-text :label="uiname.label" required v-model="name"></e-short-text>
+    <e-short-text ref="txtName" :label="uiname.label" required v-model="name"></e-short-text>
     {{name}}
+    <button @click="save">Save</button>
     <app-menu></app-menu>
     <router-view></router-view>
   </div>
@@ -19,9 +20,14 @@ export default {
     return {
       name: "Constantine Davin Ethan",
       uiname: {
-        label: "Input Name : "
+        label: "Name"
       }
     };
+  },
+  methods: {
+    save() {
+      this.$refs.txtName.validate();
+    }
   }
 };
 </script>
