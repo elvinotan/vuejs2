@@ -1,7 +1,19 @@
 <template>
   <div>
-    <e-label :required="required" :show="showLabel">{{label}} :</e-label>
-    <input type="text" ref="shortText" :maxlength="maxlength" :value="value" @input="updateValue()" />
+    <e-label
+      ref="fLabel"
+      :required="required_"
+      :disabled="disabled_"
+      :show="showLabel_"
+    >{{label_}} :</e-label>
+    <input
+      type="text"
+      ref="rInput"
+      :disabled="disabled_"
+      :maxlength="maxlength_"
+      :value="value_"
+      @input="input()"
+    />
     <span v-show="error.has" class="errors">{{error.message}}</span>
   </div>
 </template>
@@ -17,10 +29,45 @@ export default {
     label: { type: String, required: false, default: "" },
     showLabel: { type: Boolean, required: false, default: true },
     value: { type: String, required: false, default: "" },
-    maxlength: { type: Number, required: false, default: 24 }
+    maxlength: { type: Number, required: false, default: 24 },
+    disabled: { type: Boolean, required: false, default: false }
+  },
+  watch: {
+    required(n) {
+      console.log("ShortText.watch.required " + n);
+      this.required_ = n;
+    },
+    label(n) {
+      console.log("ShortText.watch.label " + n);
+      this.label_ = n;
+    },
+    showLabel(n) {
+      console.log("ShortText.watch.showLabel " + n);
+      this.showLabel_ = n;
+    },
+    value(n) {
+      console.log("ShortText.watch.value " + n);
+      this.value_ = n;
+    },
+    maxlength(n) {
+      console.log("ShortText.watch.maxlength " + n);
+      this.maxlength_ = n;
+    },
+    disabled(n) {
+      console.log("ShortText.watch.disabled " + n);
+      this.disabled_ = n;
+    }
   },
   data() {
     return {
+      name: "ShortText",
+      type: "input",
+      required_: this.required,
+      label_: this.label,
+      showLabel_: this.showLabel,
+      value_: this.value,
+      maxlength_: this.maxlength,
+      disabled_: this.disabled,
       error: {
         has: false,
         message: ""
@@ -28,15 +75,18 @@ export default {
     };
   },
   methods: {
-    updateValue() {
-      this.$emit("input", this.$refs.shortText.value);
+    input() {
+      console.log("ShortText.methods.input");
+      this.$emit("input", this.$refs.rInput.value);
     },
     clearError() {
+      console.log("ShortText.methods.clearError");
       this.error = { has: false, message: "" };
     },
     validate() {
+      console.log("ShortText.methods.validate");
       this.clearError();
-      const value = this.$refs.shortText.value;
+      const value = this.$refs.rInput.value;
       if (value === "") {
         this.error = { has: true, message: this.label + " is required" };
       } else if (value.length > this.maxlength) {

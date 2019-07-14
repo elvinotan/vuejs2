@@ -1,6 +1,13 @@
 <template>
   <div>
-    <e-short-text ref="txtName" :label="uiname.label" required v-model="name"></e-short-text>
+    <e-short-text
+      ref="txtName"
+      :label="uiname.label"
+      :showLabel="show"
+      :required="required"
+      :disabled="disabled"
+      v-model="name"
+    ></e-short-text>
     {{name}}
     <button @click="save">Save</button>
     <app-menu></app-menu>
@@ -19,6 +26,9 @@ export default {
   data() {
     return {
       name: "Constantine Davin Ethan",
+      show: true,
+      disabled: false,
+      required: false,
       uiname: {
         label: "Name"
       }
@@ -26,7 +36,11 @@ export default {
   },
   methods: {
     save() {
-      this.$refs.txtName.validate();
+      //this.$refs.txtName.validate();
+      this.disabled = !this.disabled;
+      this.required = !this.required;
+      this.uiname.label = this.uiname.label + " ayo ";
+      // this.disabled = !this.disabled;
     }
   }
 };
