@@ -7,6 +7,7 @@
       :required="required"
       :disabled="disabled"
       v-model="name"
+      col="1,2,3,4"
     ></e-short-text>
     {{name}}
     <button @click="save">Save</button>
